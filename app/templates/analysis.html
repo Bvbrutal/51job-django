@@ -1,0 +1,250 @@
+{% extends 'pshxx.html' %}
+
+{% block head-before %}
+    <link rel="stylesheet" href="../static/assets/css/responsive.css">
+    <script src="../static/assets/js/echarts.js"></script>
+    <style>
+        #zz {
+            width: 2000px;
+            height: 1280px;
+        }
+
+        #main1 {
+            width: 1000px;
+            height: 640px;
+            float: left;
+            padding-bottom: 40px;
+        }
+
+        #main2 {
+            width: 1000px;
+            height: 640px;
+            float: left;
+            padding-bottom: 40px;
+        }
+
+        #main3 {
+            padding-bottom: 40px;
+            width: 1000px;
+            height: 640px;
+            float: left;
+        }
+
+        #main4 {
+            width: 1000px;
+            height: 640px;
+            float: left;
+            padding-bottom: 40px;
+        }</style>
+{% endblock %}
+
+
+{% block main %}
+
+    <!-- Services Area Start -->
+    <section class="service-area services-padding" style="padding-top:100px">
+        <div class="container">
+            {#            <div style="text-align: center;font-size: x-large;margin-bottom: 50px;">#}
+            {#                <h2><a>据数据统计显示，{{df1.index[0]}}、{{df1.index[1]}}、{{df1.index[2]}}是就业最受欢迎的三座城市</a></h2>#}
+            {#                <h2><a>平均月薪薪资集中在 {{ df4.index[0] }} 左右, 占比 {{ (df5[0]*100).round(2) }}%</a></h2>#}
+            {#                <h2><a>就业企业资质选择{{df3.index[0]}}（占比{{ (df6[0]*100).round(2) }}%）、{{df3.index[1]}}（占比{{(df6[1]*100).round(2) }}%）的人数偏多</a></h2>#}
+            {#                <h2><a>岗位对学历与工作经验的要求大部分是：{{"、".join(df2.index[0])}}（占比 {{ (df7[0]*100).round(2) }}%）</a></h2>#}
+            {#            </div>#}
+            <!-- Section Tittle -->
+            <div id="zz">
+                <div id="main1"></div>
+                <div id="main2"></div>
+                <div id="main3"></div>
+                <div id="main4"></div>
+            </div>
+
+
+        </div>
+
+    </section>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main1'));
+        var option;
+
+        option = {
+            title: {
+                text: '城市招聘岗位数目top20',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left'
+            },
+            series: [
+                {
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [
+                        {% for i,p in df1 %}
+                            {value: {{i}}, name: '{{p}}'},
+                        {% endfor %}
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+
+    </script>
+    <script type="text/javascript">
+        var chartDom = document.getElementById('main2');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: '岗位对学历与工作经验的要求统计',
+                left: 'center',
+                top: 2,
+                textStyle: {
+                    color: 'black'
+                }
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            series: [
+                {
+                    name: 'requests',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '40',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        {% for i,p in df2 %}
+                            {
+                                value:{{ i }},
+                                name: '{{ p|join:", " }}'
+                            },
+                        {% endfor %}
+                    ]
+                }
+            ],
+            legend: {
+                orient: 'vertical',
+                left: 'left'
+            }
+        };
+
+        option && myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        var chartDom = document.getElementById('main3');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: '公司资质情况',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left'
+            },
+            series: [
+                {
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [
+                        {% for i,p in df3 %}
+                            {value:{{ i }}, name: '{{p}}'},
+                        {% endfor %}
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+
+    </script>
+    <script type="text/javascript">
+        var chartDom = document.getElementById('main4');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: '薪资分布情况统计',
+                left: 'center'
+            },
+            xAxis: {
+                type: 'category',
+                name: '平均月薪(/元)',
+                nameLocation: 'center',
+                nameTextStyle: {
+                    padding: [20, 0, 0, 0]
+                },
+                data: {{ xdata|safe }}
+            },
+            yAxis: {
+                type: 'value',
+                name: '统计数量'
+            },
+            dataZoom: [
+                {
+                    type: 'inside',
+                    width: 30
+                }
+            ],
+            series: [
+                {
+                    data: {{ ydata|safe }},
+                    {#data:{{yData}},#}
+                    type: 'bar',
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+    </script>
+
+{% endblock %}

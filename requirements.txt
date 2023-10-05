@@ -1,0 +1,8 @@
+pymysql
+requests
+pandas
+PyExecJS
+selenium
+configparser
+pillow
+lxml
