@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/cool.css">
     <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/theme/style-red.css">
     <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/plugins/sweetalert2.min.css">
-
     <style>
         .nav-pills .nav-link {
             font-weight: 500;
@@ -122,7 +121,8 @@
                 <div class="brand-logo"></div>
                 <h2 class="brand-text mb-0"></h2>
             </a></li>
-            <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="icon-x d-block d-xl-none font-medium-4 primary toggle-icon feather icon-disc"></i><i
+            <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
+                    class="icon-x d-block d-xl-none font-medium-4 primary toggle-icon feather icon-disc"></i><i
                     class="toggle-icon icon-disc font-medium-4 d-none d-xl-block collapse-toggle-icon primary feather"
                     data-ticon="icon-disc"></i></a></li>
         </ul>
@@ -160,163 +160,9 @@
     </div>
 </div>
 
-<div class="app-content content">
-    <div class="content-overlay"></div>
-    <div class="header-navbar-shadow"></div>
-    <div class="content-wrapper">
-        <div class="content-header row">
-        </div>
-        <div class="content-body">
-            <section id="dashboard-analytics">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="card bg-analytics text-white">
-                            <div class="card-content">
-                                <div class="card-body text-center">
-                                    <img src="/theme/cool/assets/images/elements/decore-left.png" class="img-left"
-                                         alt="card-img-left">
-                                    <img src="/theme/cool/assets/images/elements/decore-right.png" class="img-right"
-                                         alt="card-img-right">
-                                    <div class="avatar avatar-xl bg-primary shadow mt-0">
-                                        <div class="avatar-content">
-                                            <i class="feather icon-award white font-large-1"></i>
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <h1 class="mb-2 text-white">Hi, 彭松焕</h1>
-                                        <p class="m-auto w-75">欢迎使用 <strong>SudaCloud</strong>，期待给您带来优秀的网络加速服务
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card card-stats">
+{% block main-content %}
+{% endblock %}
 
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="h3 font-weight-bold mb-0">按量付费</span>
-                                        <h5 class="card-title text-uppercase text-muted mb-0" style="font-size: 14px;">
-                                            按量付费启用中</h5>
-                                    </div>
-                                    <div class="avatar bg-rgba-primary p-50 m-0">
-                                        <div class="avatar-content">
-                                            <i class="feather icon-user font-medium-5" style="color:#7367f0"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-stats">
-
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="h3 font-weight-bold mb-0">1 / 2</span>
-                                        <h5 class="card-title text-uppercase text-muted mb-0" style="font-size: 14px;">
-                                            在线设备数</h5>
-                                    </div>
-                                    <div class="avatar bg-rgba-warning p-50 m-0">
-                                        <div class="avatar-content">
-                                            <i class="feather icon-server text-warning font-medium-5"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card card-stats">
-
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="h3 font-weight-bold mb-0">¥ 12.80</span>
-                                        <h5 class="card-title text-uppercase text-muted mb-0" style="font-size: 14px;">
-                                            账户余额 </h5>
-                                    </div>
-                                    <div class="avatar bg-rgba-success p-50 m-0">
-                                        <div class="avatar-content">
-                                            <i class="feather icon-credit-card text-success font-medium-5"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-stats">
-
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="h3 font-weight-bold mb-0">100 <small>Mbps</small></span>
-                                        <h5 class="card-title text-uppercase text-muted mb-0" style="font-size: 14px;">
-                                            宽带速率</h5>
-                                    </div>
-                                    <div class="avatar bg-gradient-info p-50 m-0">
-                                        <div class="avatar-content">
-                                            <i class="feather icon-bar-chart-2 text-gradient-info font-medium-5"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-12">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    第一
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    第二
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    第三
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between align-items-end">
-                                第四右头
-                            </div>
-                            <hr/>
-                            <div class="card-content">
-                                <div class="card-body pt-0">
-                                    第四右身体
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between align-items-end">
-                                第五右头
-                            </div>
-                            <hr/>
-                            <div class="card-content">
-                                <div class="card-body pt-0">
-                                    第五身体
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-</div>
 
 <footer class="footer footer-static footer-light">
     <p class="clearfix blue-grey lighten-2 mb-0">
