@@ -6,16 +6,16 @@ from app.models import joblists
 
 
 def main(request):
-    return render(request, "index.html")
+    return render(request, "old/index.html")
 
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "old/index.html")
 
 
 def pythoninfo(request):
     df = joblists.objects.all()[:100]
-    return render(request, 'pythoninfo.html', {'data': df})
+    return render(request, 'old/pythoninfo.html', {'data': df})
 
 
 def analysis(request):
@@ -48,11 +48,11 @@ def analysis(request):
     context = { 'df1': df1,'df2': df2, 'df3': df3, 'xdata': xdata, 'ydata': ydata,
                'df4': df4, 'df5': df5,
                'df6': df6, 'df7': df7}
-    return render(request, 'analysis.html', context)
+    return render(request, 'old/analysis.html', context)
 
 
 def wordcloud(request):
-    return render(request, 'wordcloud.html')
+    return render(request, 'old/wordcloud.html')
 
 
 def show(request):
@@ -109,7 +109,7 @@ def show(request):
     first_job=ec1_index[0]
 
     context={'data': data,'job_conut':job_conut,'ec1': ec1,'ec2':ec2,'ec5':ec5,'ec6':ec6,'ec31':ec31,'ec32':ec32,'ec33':ec33,'ec4':ec4,'first_job':first_job}
-    return render(request, 'show.html', context)
+    return render(request, 'old/show.html', context)
 
 
 

@@ -1,7 +1,15 @@
-{% extends "pshxx.html" %}
+{% extends "old/pshxx.html" %}
+
+{% block nav %}
+    <li><a href="/">主页</a></li>
+    <li class="active"><a href="/pythoninfo">原数据展示</a></li>
+    <li><a href="/analysis">数据分析</a></li>
+    <li><a href="/wordcloud">词云</a></li>
+    <li><a href="/test">可视化大屏</a></li>
+{% endblock %}
 
 {% block main %}
-    <section class="service-area services-padding" style="padding-top:100px">
+    <section class="service-area services-padding" style="padding-top:0">
         <table border="1px" class="table-striped">
             <tr>
                 <td align="center">岗位名称</td>
