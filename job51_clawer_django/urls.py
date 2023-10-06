@@ -17,14 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app import v2
 from app import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', views.index),
+    path('index_old/', views.index),
     path('test/', views.show),
     path('wordcloud/', views.wordcloud),
     path('analysis/', views.analysis),
     path('pythoninfo/', views.pythoninfo),
-    path('main/', views.main)
+    path('main/', views.main),
+    path('', v2.index),
+    path('visualization/', v2.visualization),
 ]

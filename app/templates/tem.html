@@ -6,15 +6,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <script src="/theme/cool/assets/js/663oAX_et55Nw-9sjwwB5L3PB9U.js"></script>
+
+    <script src="../static/theme/cool/assets/js/663oAX_et55Nw-9sjwwB5L3PB9U.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/cool.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/theme/style-red.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/plugins/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/cool.css">
+    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/theme/style-red.css">
+    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/plugins/sweetalert2.min.css">
+
     <style>
         .nav-pills .nav-link {
             font-weight: 500;
@@ -39,6 +41,7 @@
         }
 
     </style>
+    {% block app-head %}{% endblock %}
 </head>
 
 
@@ -117,7 +120,7 @@
 <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
-            <li class="nav-item mr-auto"><a class="navbar-brand" href="/user">
+            <li class="nav-item mr-auto"><a class="navbar-brand" href="/">
                 <div class="brand-logo"></div>
                 <h2 class="brand-text mb-0"></h2>
             </a></li>
@@ -130,60 +133,74 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main sidebarnav" data-menu="menu-navigation">
-            <li class="nav-item"><a href="/user"><i class="feather icon-home"></i><span
+            <li class="nav-item"><a href="/"><i class="feather icon-home"></i><span
                     class="menu-title">首页</span></a></li>
-            <li class="nav-item"><a href="/user/shop"><i class="feather icon-shopping-cart"></i><span
-                    class="menu-title">商店</span></a></li>
+            <li class="nav-item"><a href="/visualization"><i class="feather icon-shopping-cart"></i><span
+                    class="menu-title">可视化</span></a></li>
             <li class="nav-item navigation-header"><span>我的</span></li>
-            <li class="nav-item"><a href="/user/profile"><i class="feather icon-user"></i><span
-                    class="menu-title">我的账号</span></a></li>
-            <li class="nav-item"><a href="/user/code"><i class="feather icon-credit-card"></i><span class="menu-title">我的钱包</span></a>
-            </li>
-            <li class="nav-item"><a href="/user/invite"><i class="feather icon-paperclip"></i><span class="menu-title">邀请注册</span></a>
-            </li>
-            <li class="navigation-header"><span>使用</span></li>
-            <li class="nav-item"><a href="/user/node"><i class="feather icon-server"></i><span
-                    class="menu-title">节点列表</span></a></li>
-            <li class="nav-item"><a href="/user/subscribe_log"><i class="feather icon-align-left"></i><span
-                    class="menu-title">订阅记录</span></a></li>
-            <li class="nav-item"><a href="https://book.bilicdn.net/"><i class="feather icon-book"></i><span
-                    class="menu-title">使用教程</span></a></li>
-            <li class="nav-item"><a href="/user/share-account"><i class="feather icon-share-2"></i><span
-                    class="menu-title">共享账号</span></a></li>
-            <li class="nav-item"><a href="/user/edit"><i class="feather icon-settings"></i><span
-                    class="menu-title">节点设置</span></a></li>
-            <li class="nav-item"><a href="/user/ticket"><i class="feather icon-headphones"></i><span class="menu-title">工单系统</span></a>
-            </li>
-            <li class="nav-item"><a href="/user/detect"><i class="feather icon-sliders"></i><span class="menu-title">审计系统</span></a>
-            </li>
         </ul>
     </div>
 </div>
 
-{% block main-content %}
-{% endblock %}
-
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    {% block app-content %}{% endblock %}
+</div>
 
 <footer class="footer footer-static footer-light">
     <p class="clearfix blue-grey lighten-2 mb-0">
         <span class="float-md-left d-block d-md-inline-block mt-25">Copyright &copy; 2023 By • <a
-                class="text-bold-800 grey darken-2" href="http://pshxx.cc" target="_blank">Psh</a></span>
+                class="text-bold-800 grey darken-2" href="https://pshxx.cc/about/" target="_blank">Psh</a></span>
         <span class="float-md-right d-none d-md-block">Dream is like underwear. Although you have it, you can not show it to everyone you meet.</span>
     </p>
 </footer>
 
-<script data-cfasync="false" src="/theme/cool/assets/js/email-decode.min.js"></script>
-<script src="/theme/cool/assets/js/jquery.min.js"></script>
-<script src="/theme/cool/assets/vendors/js/vendors.min.js"></script>
-<script src="/theme/cool/assets/js/jquery.validate.min.js"></script>
-<script src="/theme/cool/assets/js/notify.js"></script>
-<script src="/theme/cool/assets/js/clipboard.min.js"></script>
-<script src="/theme/cool/assets/js/sweetalert2.min.js"></script>
-<script src="/theme/cool/assets/js/cool.js?v7"></script>
-<script src="/theme/cool/assets/js/core/app.js"></script>
-<script src="/theme/cool/assets/js/core/app-menu.js"></script>
-<script src="/theme/cool/assets/vendors/js/charts/apexcharts.min.js"></script>
-<script src="/theme/cool/assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+<script data-cfasync="false" src="../static/theme/cool/assets/js/email-decode.min.js"></script>
+<script src="../static/theme/cool/assets/js/jquery.min.js"></script>
+<script src="../static/theme/cool/assets/vendors/js/vendors.min.js"></script>
+<script src="../static/theme/cool/assets/js/jquery.validate.min.js"></script>
+<script src="../static/theme/cool/assets/js/notify.js"></script>
+<script src="../static/theme/cool/assets/js/clipboard.min.js"></script>
+<script src="../static/theme/cool/assets/js/sweetalert2.min.js"></script>
+<script src="../static/theme/cool/assets/js/cool.js?v7"></script>
+<script src="../static/theme/cool/assets/js/core/app.js"></script>
+<script src="../static/theme/cool/assets/js/core/app-menu.js"></script>
+<script src="../static/theme/cool/assets/vendors/js/charts/apexcharts.min.js"></script>
+<script src="../static/theme/cool/assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+<script>
+    var sessionChartoptions = {
+        chart: {
+            type: 'donut',
+            height: 325,
+            toolbar: {
+                show: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        series: [0.045769472471761, 99.952428821919, 0.0018017056087653],
+        legend: {show: false},
+        comparedResult: [2, -3, 8],
+        labels: ['可用', '已用', '今日已用'],
+        stroke: {width: 0},
+        colors: ['#7367F0', '#FF9F43', '#EA5455'],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                gradientToColors: ['#A9A2F6', '#ffc085', '#f29292']
+            }
+        }
+    }
+</script>
+<script>
+    $("#reset-link").click(function () {
+        swal('重置成功', "请变更或添加您的订阅链接！～～", 'success');
+        window.setTimeout("location.href='/user/url_reset'", 1200);
+    });
+</script>
+{% block app-foot %}{% endblock %}
 </body>
 
 </html>

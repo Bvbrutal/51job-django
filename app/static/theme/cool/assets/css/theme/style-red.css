@@ -1,0 +1,271 @@
+.main-menu.menu-light .navigation>li.active>a {
+    background: linear-gradient(118deg,#eb5a5b,#ef7879);
+    box-shadow: 0 0 10px 1px #eca6a7;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 4px
+}
+
+#dashboard-analytics .img-left {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+#dashboard-analytics .img-right {
+    width: 175px;
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.bg-primary {
+    background-color: #ea5455!important
+}
+
+.horizontal-menu .header-navbar.navbar-horizontal ul#main-menu-navigation>li.active>a {
+    background: linear-gradient(118deg,#eb5a5b,#ef7879);
+    box-shadow: 0 0 6px 1px #eca6a7;
+    color: #fff;
+    border-radius: 4px
+}
+
+#dashboard-analytics .bg-analytics {
+    background: linear-gradient(118deg,#eb5a5b,#ef797a)
+}
+
+#dashboard-analytics .bg-analytics .avatar {
+    margin-bottom: 2rem
+}
+
+#dashboard-analytics table tr th:first-child,#dashboard-analytics table tr td:first-child {
+    padding-left: 2rem
+}
+
+#dashboard-analytics table tr th:last-child,#dashboard-analytics table tr td:last-child {
+    padding-right: 2rem
+}
+
+#dashboard-analytics table td {
+    padding: .75rem
+}
+
+@media only screen and (max-width: 576px) {
+    #dashboard-analytics .img-left,#dashboard-analytics .img-right {
+        width:140px
+    }
+}
+
+.nav-pills .nav-link.active,.nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #ea5455
+}
+
+.node-pills .nav-link {
+    font-size: .875rem;
+    font-weight: 500;
+    padding: .75rem 1rem;
+    transition: all .15s ease;
+    color: #ea5455;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08)
+}
+
+.btn-outline-primary:hover {
+    background-color: rgba(115,103,240,.08);
+    color: #ef9b9c
+}
+
+.btn-outline-primary {
+    border: 1px solid #ee8b8c;
+    background-color: transparent;
+    color: #ea5455
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #eb5e5f;
+    border-color: #ed7576
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #ee9697;
+    border-color: #ee9091
+}
+
+.btn-primary:focus,.btn-primary.focus {
+    box-shadow: 0 0 0 .2rem rgba(136,126,242,.5)
+}
+
+.btn-primary.disabled,.btn-primary:disabled {
+    color: #fff;
+    background-color: #ee8182;
+    border-color: #ee8e8f
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,.btn-primary:not(:disabled):not(.disabled).active,.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #ec6c6d;
+    border-color: #ed8485
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(136,126,242,.5)
+}
+
+.main-menu .navbar-header .navbar-brand .brand-text {
+    color: #ea5455;
+    font-weight: 600;
+    letter-spacing: .01rem;
+    font-size: 1.57rem;
+    animation: .3s cubic-bezier(.25,.8,.25,1) 0s normal forwards 1 fadein
+}
+
+.main-menu .navbar-header .navbar-brand .brand-logo {
+    background: url(../../images/elements/logo.gif) no-repeat;
+    background-position: -45px -25px;
+    height: 85px;
+    width: 180px
+}
+
+.horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand .brand-logo {
+    background: url(../../images/elements/decore-right.png) no-repeat;
+    background-position: -10px -10px;
+    height: 24px;
+    width: 35px
+}
+
+.text-primary {
+    color: #eb5a5b!important
+}
+
+a {
+    color: #ed8283;
+    text-decoration: none;
+    background-color: transparent
+}
+
+a:hover {
+    color: #f18d8e;
+    text-decoration: none
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #eb5a5bba;
+    background-color: #eb5a5b
+}
+
+.modal .modal-header .close span {
+    font-weight: 400;
+    font-size: 2rem;
+    color: #ed7172
+}
+
+.modal .modal-header .close span {
+    font-weight: 400;
+    font-size: 2rem;
+    color: #eb5a5b
+}
+
+.dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: #f8f8f8;
+    color: #ed8182
+}
+
+html .pace .pace-progress {
+    background: #ed7677
+}
+
+.card.card-hero .card-header {
+    padding: 40px;
+    background-image: linear-gradient(to bottom,#ec6263,#ef9798);
+    color: #fff;
+    overflow: hidden;
+    height: auto;
+    min-height: auto;
+    display: block
+}
+
+.card.card-hero .card-header h4 {
+    font-size: 40px;
+    line-height: 1;
+    color: #fff
+}
+
+.card.card-hero .card-header .card-description {
+    margin-top: 5px;
+    font-size: 16px
+}
+
+.card.card-hero .card-header .card-icon {
+    float: right;
+    color: #ee9798;
+    font-size: 140px;
+    margin-top: -100px;
+    margin-right: -50px
+}
+
+.pagination-render span {
+    color: #ee8889;
+    background: #f9fafe;
+    border-radius: 3px;
+    margin: 0 3px;
+    font-weight: 600;
+    border-color: transparent;
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    line-height: 1.25;
+    cursor: pointer;
+    border: 1px solid #f9fafe
+}
+
+.pagination-render .disabled {
+    cursor: auto;
+    pointer-events: none
+}
+
+.pagination-render .active span {
+    background-color: #ed8384;
+    color: #fff;
+    border-color: #ef9394
+}
+
+.pagination-render a {
+    color: #ed7e7f;
+    background: #f9fafe;
+    border-radius: 3px;
+    margin: 0 3px;
+    font-weight: 600;
+    border-color: transparent;
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    line-height: 1.25;
+    border: 1px solid #f9fafe
+}
+
+.pagination-render a:hover {
+    background-color: #ed7475;
+    color: #fff;
+    border-color: transparent;
+    text-decoration: none
+}
+
+.header-navbar .navbar-container ul.nav li.dropdown-user .dropdown-menu-right .dropdown-item:hover,.header-navbar .navbar-container ul.nav li.dropdown-user .dropdown-menu-right .dropdown-item:active {
+    background: #ef7576;
+    color: #fff!important
+}
+
+.vs-checkbox-con input:checked~.vs-checkbox {
+    transform: rotate(0deg);
+    border-color: #f7786f
+}
+
+.vs-checkbox-con input:checked~.vs-checkbox .vs-checkbox--check {
+    transform: translate(0);
+    background-color: #f44336
+}
