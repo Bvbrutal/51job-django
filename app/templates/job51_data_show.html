@@ -1,0 +1,61 @@
+{% extends 'tem.html' %}
+{% load static %}
+{% block app-head %}
+
+{% endblock %}
+
+
+
+{% block app-content %}
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <section id="dashboard-analytics">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-content" style="overflow: hidden;padding: 10px">
+                                <table border="1px" class="table-striped">
+                                    <tr>
+                                        <td align="center">岗位名称</td>
+                                        <td align="center" width="50px">地区</td>
+                                        <td align="center" width="150px">公司全称</td>
+                                        <td align="center">薪资</td>
+                                        <td align="center" width="50px">学历要求</td>
+                                        <td align="center" width="150px">职业类别</td>
+                                        <td align="center" width="150px">招收对象</td>
+                                        <td align="center" width="50px">企业类别</td>
+                                        <td align="center" width="100px">更新时间</td>
+                                        <td align="center">关键字</td>
+                                    </tr>
+                                    {% for i in job51_data %}
+                                        <tr>
+                                            <td align="center">{{ i.JobTitle }}</td>
+                                            <td align="center">{{ i.Area }}</td>
+                                            <td align="center">{{ i.CompanyName }}</td>
+                                            <td align="center">{{ i.Salary }}</td>
+                                            <td align="center">{{ i.EducationRequirement }}</td>
+                                            <td align="center">{{ i.OccupationCategory }}</td>
+                                            <td align="center">{{ i.RecruitingTargets }}</td>
+                                            <td align="center">{{ i.EnterpriseCategory }}</td>
+                                            <td align="center">{{ i.UpdateTime }}</td>
+                                            <td align="center">{{ i.Keywords }}</td>
+                                        </tr>
+                                    {% empty %}
+                                        <li><span class="h4 font-weight-bold mb-0">Maybe something wrong!</span></li>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block app-foot %}
+
+
+{% endblock %}

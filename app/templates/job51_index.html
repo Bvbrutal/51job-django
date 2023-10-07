@@ -1,5 +1,5 @@
 {% extends 'tem.html' %}
-
+{% load static %}
 {% block app-head %}
 
 {% endblock %}
@@ -13,24 +13,10 @@
             <section id="dashboard-analytics">
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="card bg-analytics text-white">
-                            <div class="card-content">
-                                <div class="card-body text-center">
-                                    <img src="../static/theme/cool/assets/images/elements/decore-left.png" class="img-left"
-                                         alt="card-img-left">
-                                    <img src="../static/theme/cool/assets/images/elements/decore-right.png" class="img-right"
-                                         alt="card-img-right">
-                                    <div class="avatar avatar-xl bg-primary shadow mt-0">
-                                        <div class="avatar-content">
-                                            <i class="feather icon-award white font-large-1"></i>
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <h1 class="mb-2 text-white">Hi, 彭松焕</h1>
-                                        <p class="m-auto w-75">欢迎使用 <strong>AITOOLS</strong>，期待给您带来优秀的体验
-                                        </p>
-                                    </div>
-                                </div>
+                        <div class="card text-white">
+                            <div class="card-content" style="overflow: hidden;padding: 10px">
+                                <img src="{% static 'assets/img/show2.png' %}" alt="51job"
+                                     style="height: 100%;width: 100%;">
                             </div>
                         </div>
                     </div>
@@ -110,47 +96,31 @@
                 <div class="row">
                     <div class="col-md-6 col-12">
                         <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    第一
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <div class="w-100 text-center">
+                                    <span class="h3 font-weight-bold mb-0">词云</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
                             <div class="card-content">
-                                <div class="card-body">
-                                    第二
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    第三
+                                <div class="card-body" style="padding: 10px">
+                                    <img class="align-content-center" style="display: inline"
+                                         src="{% static 'img/keyword.jpg' %}" width="100%"
+                                         height="100%"
+                                         alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6">
                         <div class="card">
-                            <div class="card-header d-flex justify-content-between align-items-end">
-                                第四右头
-                            </div>
-                            <hr/>
-                            <div class="card-content">
-                                <div class="card-body pt-0">
-                                    第四右身体
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <div class="w-100 text-center">
+                                    <span class="h3 font-weight-bold mb-0">数据展示</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between align-items-end">
-                                第五右头
-                            </div>
-                            <hr/>
                             <div class="card-content">
-                                <div class="card-body pt-0">
-                                    第五身体
+                                <div class="card-body" style="padding: 10px">
+                                   
                                 </div>
                             </div>
                         </div>

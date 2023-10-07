@@ -1,16 +1,83 @@
 {% extends 'tem.html' %}
 
 {% block app-head %}
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <title>PDF转换总结</title>
+    <style>
+        /* 在这里添加你的 CSS 样式 */
+    </style>
 {% endblock %}
 
 
 
 {% block app-content %}
-
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <section id="dashboard-analytics">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-content" style="background: #97d3e7;height: 500px">
+                                <h1 style="text-align:center;margin-top: 50px">---------PDF转换总结---------</h1>
+                                <div style="text-align: center">
+                                    <form method="post" enctype="multipart/form-data" id="formSubmit"
+                                          style="display: inline-block;margin-top: 50px">
+                                        {% csrf_token %}
+                                        <div style="display: inline-block ;float:left;margin-right: 10px"><input
+                                                type="file" name="file" title="点击选择上传文件"
+                                                multiple="" accept="*/*" class="form-control">
+                                        </div>
+                                        <div style="display: inline-block ;float:left">
+                                            <button type="submit" class="btn btn-primary"
+                                                    style="background-color: #00cfe8">上传
+                                            </button>
+                                            <button type="button" class="btn btn-primary"
+                                                    style="background-color: #00cfe8"
+                                                    onclick="get_result(path.responseJSON.name)">开始识别
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <div id="show_result"
+                                         style="margin: 50px;text-align: left;background-color: #ddffff!important;padding: 14px;border-left: 6px solid #ccc!important;border-color: #2196F3!important;">
+                                        此处为结果输出，PDF识别可能需要几分钟，请稍等......
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 {% endblock %}
 
 {% block app-foot %}
+    <script>
+        let show_result = document.getElementById("show_result")
 
+        function get_result(name) {
+            $.ajax({
+                type: "POST",                //请求方式
+                url: "http://127.0.0.1:8000/show_pdf_summary",                 //路径
+                async: true,             //是否异步
+                data: {'name': name},
+                dataType: "json",
+                //返回数据的格式
+                success: function (res) {  //成功的回调函数
+                    show_result.innerHTML = res.message;    //res代表返回的数据，可以随心所欲处理数据啦
+                },
+                timeout: 200000,
+                // 失败的回调
+                error: function () {
+                    console.log('出错啦!!!');
+                }
+            })
+        }
+    </script>
 
 {% endblock %}

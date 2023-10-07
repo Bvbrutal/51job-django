@@ -40,10 +40,11 @@ urlpatterns = [
     path('user/',account.user),
 
     # 51JOB
-    path('job51/index', v2.job51_index),
+    path('job51/index/', v2.job51_index),
+    path('job51/data_show/', v2.job51_data_show),
     path('job51/visualization/', v2.job51_visualization),
     path('job51/visual_screen/', v2.job51_visual_screen),
-    path('job51/screen',v2.job51_screen),
+    path('job51/screen/',v2.job51_screen),
 
     # AI-TOOLS
     path('aitools/', v2.aitools),
