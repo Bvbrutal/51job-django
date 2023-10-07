@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../static/img/Blue%20Wheeled%20Triskelion%202.ico"/>
+    <link rel="shortcut icon" href="{% static 'img/Blue%20Wheeled%20Triskelion%202.ico' %}">
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <title>音频文字识别</title>
     <style>
-
+        /* 您可以在这里添加样式 */
     </style>
 </head>
 <body>
 <h1 style="text-align:center">---------音频文字识别---------</h1>
 <div style="text-align: center">
     <form method="post" enctype="multipart/form-data" id="formSubmit">
-        <div style="display: inline"><label>请选择文件</label> <input type="file" name="file" title="点击选择文件"
+        {% csrf_token %}
+        <div style="display: inline"><label for="file">请选择文件</label> <input type="file" name="file" title="点击选择文件"
                                                                       multiple="" accept="*/*" class="form-control">
         </div>
         <div style="display: inline-block"><input type="submit" class="btn btn-primary"></div>
@@ -24,6 +25,7 @@
 
     <button type="button" style="float: left;margin-left: 50px;" onclick="get_result(path.responseJSON.name)">开始识别</button>
     <div id="show_result" style="margin: 50px;text-align: left;background-color: #ddffff!important;padding: 14px;border-left: 6px solid #ccc!important;border-color: #2196F3!important;">此处为结果输出，语音识别可能需要几分钟，请稍等......</div>
+</div>
 </body>
 <script>
     let show_result = document.getElementById("show_result")

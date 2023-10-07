@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -6,16 +7,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-
-    <script src="../static/theme/cool/assets/js/663oAX_et55Nw-9sjwwB5L3PB9U.js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/cool.css">
-    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/theme/style-red.css">
-    <link rel="stylesheet" type="text/css" href="../static/theme/cool/assets/css/plugins/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.8.2/css/all.min.css">
+    <script src="{% static 'theme/cool/assets/js/663oAX_et55Nw-9sjwwB5L3PB9U.js' %}"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'theme/cool/assets/vendors/css/vendors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'theme/cool/assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'theme/cool/assets/css/bootstrap-extended.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'theme/cool/assets/css/cool.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'theme/cool/assets/css/theme/style-red.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'theme/cool/assets/css/plugins/sweetalert2.min.css' %}">
 
     <style>
         .nav-pills .nav-link {
@@ -47,7 +47,6 @@
 
 <body class="vertical-layout vertical-menu-modern dark-layout 2-columns navbar-floating footer-static pace-done menu-expanded"
       data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
-
 <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu floating-nav navbar-light navbar-shadow">
     <div class="navbar-wrapper">
         <div class="navbar-container content">
@@ -59,15 +58,15 @@
                                 class="ficon feather icon-menu"></i></a></li>
                     </ul>
                     <ul class="nav navbar-nav bookmark-icons">
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/user/profile"
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/profile"
                                                                   data-toggle="tooltip" data-placement="top" title
                                                                   data-original-title="My Account"><i
                                 class="ficon feather icon-user"></i></a></li>
                     </ul>
                     <ul class="nav navbar-nav bookmark-icons">
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/user/code"
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="https://github.com/Bvbrutal"
                                                                   data-toggle="tooltip" data-placement="top" title
-                                                                  data-original-title="My wallet"><i
+                                                                  data-original-title="My github"><i
                                 class="ficon feather icon-credit-card"></i></a></li>
                     </ul>
                 </div>
@@ -81,12 +80,12 @@
                             <div class="dropdown-header">温馨提示
                             </div>
                             <div class="dropdown-list-content dropdown-list-icons">
-                                <a href="/user/announcement" class="dropdown-item dropdown-item-unread">
+                                <a href="#" class="dropdown-item dropdown-item-unread">
                                     <div class="dropdown-item-icon bg-primary text-white">
                                         <i class="fas fa-code"></i>
                                     </div>
                                     <div class="dropdown-item-desc">
-                                        查看公告日志!
+                                        暂无通知
                                         <div class="time text-primary">2023-10-06 13:04:31</div>
                                     </div>
                                 </a>
@@ -104,8 +103,6 @@
                     </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="/user/profile"><i class="feather icon-user"></i> 我的账号</a>
-                            <a class="dropdown-item" href="/user/code"><i class="feather icon-credit-card"></i> 我的背包</a>
-                            <a class="dropdown-item" href="/user/invite"><i class="feather icon-paperclip"></i> 推荐计划</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/user/logout"><i class="feather icon-power"></i> 退出登录</a>
                         </div>
@@ -135,9 +132,24 @@
         <ul class="navigation navigation-main sidebarnav" data-menu="menu-navigation">
             <li class="nav-item"><a href="/"><i class="feather icon-home"></i><span
                     class="menu-title">首页</span></a></li>
-            <li class="nav-item"><a href="/visualization"><i class="feather icon-shopping-cart"></i><span
+            <li class="nav-item"><a href="/user"><i class="feather icon-home"></i><span
+                    class="menu-title">我的</span></a></li>
+            <li class="nav-item navigation-header"><span>51job-data</span></li>
+            <li class="nav-item"><a href="/job51/index"><i class="feather icon-home"></i><span
+                    class="menu-title">首页</span></a></li>
+            <li class="nav-item"><a href="/job51/visualization"><i
+                    class="feather icon-shopping-cart"></i><span
                     class="menu-title">可视化</span></a></li>
-            <li class="nav-item navigation-header"><span>我的</span></li>
+            <li class="nav-item"><a href="/job51/visual_screen"><i
+                    class="feather icon-shopping-cart"></i><span
+                    class="menu-title">大屏展示</span></a></li>
+            <li class="nav-item navigation-header"><span>AI-tools</span></li>
+            <li class="nav-item"><a href="/aitools/whisper"><i
+                    class="feather icon-shopping-cart"></i><span
+                    class="menu-title">WHISPER</span></a></li>
+            <li class="nav-item"><a href="/aitools/pdf_gpt"><i
+                    class="feather icon-shopping-cart"></i><span
+                    class="menu-title">PDF-GPT</span></a></li>
         </ul>
     </div>
 </div>
@@ -156,18 +168,18 @@
     </p>
 </footer>
 
-<script data-cfasync="false" src="../static/theme/cool/assets/js/email-decode.min.js"></script>
-<script src="../static/theme/cool/assets/js/jquery.min.js"></script>
-<script src="../static/theme/cool/assets/vendors/js/vendors.min.js"></script>
-<script src="../static/theme/cool/assets/js/jquery.validate.min.js"></script>
-<script src="../static/theme/cool/assets/js/notify.js"></script>
-<script src="../static/theme/cool/assets/js/clipboard.min.js"></script>
-<script src="../static/theme/cool/assets/js/sweetalert2.min.js"></script>
-<script src="../static/theme/cool/assets/js/cool.js?v7"></script>
-<script src="../static/theme/cool/assets/js/core/app.js"></script>
-<script src="../static/theme/cool/assets/js/core/app-menu.js"></script>
-<script src="../static/theme/cool/assets/vendors/js/charts/apexcharts.min.js"></script>
-<script src="../static/theme/cool/assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+<script data-cfasync="false" src="{% static 'theme/cool/assets/js/email-decode.min.js' %}"></script>
+<script src="{% static 'theme/cool/assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'theme/cool/assets/vendors/js/vendors.min.js' %}"></script>
+<script src="{% static 'theme/cool/assets/js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'theme/cool/assets/js/notify.js' %}"></script>
+<script src="{% static 'theme/cool/assets/js/clipboard.min.js' %}"></script>
+<script src="{% static 'theme/cool/assets/js/sweetalert2.min.js' %}"></script>
+<script src="{% static 'theme/cool/assets/js/cool.js?v7' %}"></script>
+<script src="{% static 'theme/cool/assets/js/core/app.js' %}"></script>
+<script src="{% static 'theme/cool/assets/js/core/app-menu.js' %}"></script>
+<script src="{% static 'theme/cool/assets/vendors/js/charts/apexcharts.min.js' %}"></script>
+<script src="{% static 'theme/cool/assets/js/scripts/pages/dashboard-ecommerce.js' %}"></script>
 <script>
     var sessionChartoptions = {
         chart: {
@@ -200,7 +212,10 @@
         window.setTimeout("location.href='/user/url_reset'", 1200);
     });
 </script>
+
+
 {% block app-foot %}{% endblock %}
+
 </body>
 
 </html>

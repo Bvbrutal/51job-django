@@ -14,20 +14,52 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
 
-from app import v2
+from app import v2, account
 from app import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+    # 旧版
     path('index_old/', views.index),
-    path('test/', views.show),
+    path('show/', views.show),
     path('wordcloud/', views.wordcloud),
     path('analysis/', views.analysis),
     path('pythoninfo/', views.pythoninfo),
     path('main/', views.main),
-    path('', v2.index),
-    path('visualization/', v2.visualization),
+
+
+    # 新版
+    # v2主要
+    path('',v2.index),
+    path('user/',account.user),
+
+    # 51JOB
+    path('job51/index', v2.job51_index),
+    path('job51/visualization/', v2.job51_visualization),
+    path('job51/visual_screen/', v2.job51_visual_screen),
+    path('job51/screen',v2.job51_screen),
+
+    # AI-TOOLS
+    path('aitools/', v2.aitools),
+    path('aitools/whisper/',v2.whisper),
+    path('aitools/pdf_gpt/',v2.pdf_gpt),
+
+
+
+
+
+    # 404页面
+    path('404/', TemplateView.as_view(template_name='404.html'), name='404'),
+
+
+
+
 ]
+
+handler404 = 'app.v2.custom_404_view'

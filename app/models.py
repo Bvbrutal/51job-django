@@ -40,3 +40,10 @@ class simdFiles(models.Model):
     title=models.CharField(max_length=255,verbose_name='文件名')
     file=models.FileField(upload_to='static/file/',verbose_name='文件地址')
     add_time=models.DateField(default=timezone.now,verbose_name='文件添加时间')
+
+
+
+
+class UploadedFile(models.Model):
+    file = models.FileField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)

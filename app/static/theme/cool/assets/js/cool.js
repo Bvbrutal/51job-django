@@ -1,7 +1,7 @@
 function autopasswd(type, min, max) {
-    var res = ""
-      , range = min
-      , arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    var res = "",
+        range = min,
+        arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     if (type) {
         range = Math.round(Math.random() * (max - min)) + min;
     }
@@ -11,7 +11,8 @@ function autopasswd(type, min, max) {
     }
     return res;
 }
-;$("#pwd-update").click(function() {
+;
+$("#pwd-update").click(function() {
     var fm = $(this).closest('#user_profile_password_update');
     fm.validate({
         rules: {
@@ -93,7 +94,7 @@ $("#sublink-reset").click(function() {
         showCancelButton: true,
         confirmButtonText: '确定重置',
         cancelButtonText: '取消'
-    }).then((result)=>{
+    }).then((result) => {
         if (result.value) {
             $("#sublink-reset").text('重置中    ').attr('disabled', true);
             $.ajax({
@@ -134,8 +135,7 @@ $("#sublink-reset").click(function() {
             });
         }
         ;
-    }
-    );
+    });
 });
 $(function() {
     new ClipboardJS('.copy-text');
@@ -157,7 +157,7 @@ $("#ga-enable-true").click(function() {
         data: {
             code: $("#ga-code").val()
         },
-        success: (data)=>{
+        success: (data) => {
             if (data.ret) {
                 Swal.fire({
                     type: 'success',
@@ -176,9 +176,8 @@ $("#ga-enable-true").click(function() {
                     showConfirmButton: false
                 });
             }
-        }
-        ,
-        error: (exp)=>{
+        },
+        error: (exp) => {
             Swal.fire({
                 type: 'error',
                 title: '出现错误',
@@ -210,7 +209,7 @@ $("#ga-enable-false").click(function() {
             enable: 0,
             passwd: $("#ga-passwd").val()
         },
-        success: (data)=>{
+        success: (data) => {
             if (data.ret) {
                 Swal.fire({
                     type: 'success',
@@ -230,9 +229,8 @@ $("#ga-enable-false").click(function() {
                 });
                 window.setTimeout("location.href='/user/profile'", 1000);
             }
-        }
-        ,
-        error: (exp)=>{
+        },
+        error: (exp) => {
             Swal.fire({
                 type: 'error',
                 title: '出现错误',
@@ -427,7 +425,7 @@ function pay() {
             if (data.ret) {
                 pid = data.pid;
                 $("#qrarea").html('<div><p>请使用手机支付宝扫描二维码支付</p><a id="qrcode" style="padding-top:10px;display:inline-block"></a><br /><br /><p>手机可点击二维码唤起支付宝支付</p></div><br />');
-                new QRCode("qrcode",{
+                new QRCode("qrcode", {
                     render: "canvas",
                     width: 200,
                     height: 200,
@@ -457,7 +455,7 @@ function f2f_payjs() {
             if (data.ret) {
                 pid = data.pid;
                 $("#qrarea").html('<div><p>请使用手机扫描二维码支付</p><a id="qrcode" style="padding-top:10px;display:inline-block"></a><br /><br /><p>手机可点击二维码唤起支付</p></div><br />');
-                new QRCode("qrcode",{
+                new QRCode("qrcode", {
                     render: "canvas",
                     width: 200,
                     height: 200,
@@ -483,7 +481,7 @@ function f() {
         data: {
             pid: pid
         },
-        success: (data)=>{
+        success: (data) => {
             if (data.result) {
                 Swal.fire({
                     title: "成功充值" + $("#amount").val() + "元",
@@ -492,9 +490,8 @@ function f() {
                 })
                 window.setTimeout("location.href='/user/code'", 1000);
             }
-        }
-        ,
-        error: (exp)=>{
+        },
+        error: (exp) => {
             Swal.fire(data.msg + "  发生了错误。");
         }
     });
@@ -514,7 +511,7 @@ function spay() {
         },
         'dataType': 'json',
         'type': "POST",
-        success: (data)=>{
+        success: (data) => {
             if (data.code == 0) {
                 swal.fire("正在跳转到支付宝...");
                 console.log(data);
@@ -526,7 +523,8 @@ function spay() {
         }
     });
 }
-;$("#idt_pay").click(function() {
+;
+$("#idt_pay").click(function() {
     var pid = 0;
     var price = parseFloat($("#amount").val());
     if (isNaN(price)) {
@@ -586,13 +584,13 @@ function wxpay() {
         },
         dataType: 'json',
         type: "POST",
-        success: (data)=>{
+        success: (data) => {
             if (data.code == 0) {
                 $("#readytopay").modal('hide');
                 {
                     pid = data.pid;
                     $("#qrarea").html('<div class="text-center"><p>使用微信扫描二维码支付.</p><div align="center" id="qrcode" style="padding-top:10px;"></div><br /><p>充值完毕后会自动跳转</p></div>');
-                    var qrcode = new QRCode("qrcode",{
+                    var qrcode = new QRCode("qrcode", {
                         correctLevel: 3,
                         render: "canvas",
                         width: 200,
@@ -615,7 +613,7 @@ function f() {
         data: {
             pid
         },
-        success: (data)=>{
+        success: (data) => {
             if (data.result) {
                 Swal.fire({
                     title: "成功充值" + $("#amount").val() + "元",
@@ -624,13 +622,13 @@ function f() {
                 })
                 window.setTimeout("location.href='/user/code'", 1000);
             }
-        }
-        ,
-        error: (exp)=>{}
+        },
+        error: (exp) => {}
     });
     tid = setTimeout(f, 1000);
 }
-;function tmtpay() {
+;
+function tmtpay() {
     var price = parseFloat($("#amount").val());
     console.log("将要使用" + type + "方法充值" + price + "元")
     $.ajax({
@@ -659,7 +657,8 @@ function f() {
         }
     });
 }
-;$("#reset-link").click(function() {
+;
+$("#reset-link").click(function() {
     Swal.fire({
         type: 'info',
         title: '请注意！',
@@ -667,7 +666,7 @@ function f() {
         showCancelButton: true,
         confirmButtonText: '确定重置',
         cancelButtonText: '取消'
-    }).then((result)=>{
+    }).then((result) => {
         if (result.value) {
             Swal.fire({
                 type: 'success',
@@ -677,8 +676,7 @@ function f() {
             window.setTimeout("location.href='/user/inviteurl_reset'", 1500);
         }
         ;
-    }
-    );
+    });
 });
 function buy_Invite() {
     $.ajax({
@@ -717,7 +715,8 @@ function buy_Invite() {
         }
     });
 }
-;function custom_invite_confirm() {
+;
+function custom_invite_confirm() {
     $("#custom-invite-confirm").text('定制中').addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
     $.ajax({
         type: "POST",
@@ -726,7 +725,7 @@ function buy_Invite() {
         data: {
             customcode: $("#custom-invite-link").val(),
         },
-        success: (data)=>{
+        success: (data) => {
             $("#custom-invite-confirm").text('确定').removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
             if (data.ret) {
                 Swal.fire({
@@ -744,9 +743,8 @@ function buy_Invite() {
                     html: data.msg
                 });
             }
-        }
-        ,
-        error: (exp)=>{
+        },
+        error: (exp) => {
             $("#custom-invite-confirm").text('确定').removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
             Swal.fire({
                 type: 'error',
@@ -758,7 +756,8 @@ function buy_Invite() {
         }
     });
 }
-;$('#ss-random-password').click(function() {
+;
+$('#ss-random-password').click(function() {
     let newsspwd = Math.random().toString(36).substr(2);
     $("#ss-password").attr("value", newsspwd);
 });
@@ -1005,7 +1004,8 @@ function ticket_off(tkid, status) {
         }
     });
 }
-;function ticket_relay(tkid) {
+;
+function ticket_relay(tkid) {
     var status = 1;
     $.ajax({
         type: "PUT",
@@ -1046,10 +1046,11 @@ function ticket_off(tkid, status) {
         }
     });
 }
-;$(function() {
+;
+$(function() {
     for (var url = window.location, element = $(".sidebarnav a").filter(function() {
-        return this.href == url;
-    }).addClass("active").parent().addClass("active"); ; ) {
+            return this.href == url;
+        }).addClass("active").parent().addClass("active");;) {
         if (!element.is("li"))
             break;
         element = element.parent().addClass("in").parent().addClass("active");
@@ -1115,12 +1116,11 @@ function oneclickImport(client, url) {
                 showCancelButton: true,
                 confirmButtonText: '继续导入',
                 cancelButtonText: '取消'
-            }).then((result)=>{
+            }).then((result) => {
                 if (result.value) {
                     window.location.href = "sub://" + url_base64;
                 }
-            }
-            )
+            })
         }
     }
     if (client == 'clashr') {
@@ -1134,12 +1134,11 @@ function oneclickImport(client, url) {
                 showCancelButton: true,
                 confirmButtonText: '继续导入',
                 cancelButtonText: '取消'
-            }).then((result)=>{
+            }).then((result) => {
                 if (result.value) {
                     window.location.href = "clash://install-config?url=" + url;
                 }
-            }
-            )
+            })
         }
     }
     if (client == 'clashx') {
@@ -1153,12 +1152,11 @@ function oneclickImport(client, url) {
                 showCancelButton: true,
                 confirmButtonText: '继续导入',
                 cancelButtonText: '取消'
-            }).then((result)=>{
+            }).then((result) => {
                 if (result.value) {
                     window.location.href = "clash://install-config?url=" + url;
                 }
-            }
-            )
+            })
         }
     }
     if (client == 'shadowrocket') {
@@ -1173,12 +1171,11 @@ function oneclickImport(client, url) {
                 showCancelButton: true,
                 confirmButtonText: '继续导入',
                 cancelButtonText: '取消'
-            }).then((result)=>{
+            }).then((result) => {
                 if (result.value) {
                     window.location.href = "sub://" + url_base64;
                 }
-            }
-            )
+            })
         }
     }
     if (client == 'quantumult') {
@@ -1194,12 +1191,11 @@ function oneclickImport(client, url) {
                 showCancelButton: true,
                 confirmButtonText: '继续导入',
                 cancelButtonText: '取消'
-            }).then((result)=>{
+            }).then((result) => {
                 if (result.value) {
                     window.open("quantumult://configuration?server=" + url_base64_nes)
                 }
-            }
-            )
+            })
         }
     }
     if (client == 'quantumult_v2') {
@@ -1215,16 +1211,16 @@ function oneclickImport(client, url) {
                 showCancelButton: true,
                 confirmButtonText: '继续导入',
                 cancelButtonText: '取消'
-            }).then((result)=>{
+            }).then((result) => {
                 if (result.value) {
                     window.location.href = "quantumult://configuration?server=" + url_base64_nes;
                 }
-            }
-            )
+            })
         }
     }
 }
-;$("#checkin").click(function() {
+;
+$("#checkin").click(function() {
     $("#checkin").text('正在签到').attr('disabled', true);
     $.ajax({
         type: "POST",
@@ -1295,7 +1291,7 @@ function Copyconfig(url, id, jumpurl="") {
             }
         }
     });
-    const clipboard = new ClipboardJS('.copy-config',{
+    const clipboard = new ClipboardJS('.copy-config', {
         text: function() {
             return $(id).data('data');
         }
@@ -1361,7 +1357,8 @@ $("#order_input").click(function() {
     } else {
         var autorenew = 0;
     }
-    ;if (document.getElementById('disableothers').checked) {
+    ;
+    if (document.getElementById('disableothers').checked) {
         var disableothers = 1;
     } else {
         var disableothers = 0;
@@ -1409,7 +1406,7 @@ function buyTrafficPackage() {
             traffic: $('.touchspin-step').val(),
             price: $('#traffic_price_2').val()
         },
-        success: (data)=>{
+        success: (data) => {
             if (data.ret) {
                 $(".buyTrafficPackage").text('购买').attr('disabled', false);
                 Swal.fire({
@@ -1430,7 +1427,8 @@ function buyTrafficPackage() {
         }
     });
 }
-;function payasyougo() {
+;
+function payasyougo() {
     $.ajax({
         type: "POST",
         url: "quantitypay",
@@ -1463,7 +1461,8 @@ function buyTrafficPackage() {
         }
     });
 }
-;function urlChange(id, is_mu, rule_id) {
+;
+function urlChange(id, is_mu, rule_id) {
     var site = './node/' + id + '?ismu=' + is_mu + '&relay_rule=' + rule_id;
     if (id == 'guide') {
         var doc = document.getElementById('infoifram').contentWindow.document;
@@ -1476,8 +1475,7 @@ function buyTrafficPackage() {
     $("#nodeinfo").modal();
 }
 $(function() {
-    $.fn.modal.Constructor.prototype._enforceFocus = function() {}
-    ;
+    $.fn.modal.Constructor.prototype._enforceFocus = function() {};
     new ClipboardJS('.copy-modal');
 });
 $(".copy-modal").click(function() {

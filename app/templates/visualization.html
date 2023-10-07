@@ -1,7 +1,8 @@
 {% extends 'tem.html' %}
+{% load static %}
 
 {% block app-head %}
-    <script src="../../static/assets/js/echarts.js"></script>
+    <script src="{% static 'assets/js/echarts.js' %}"></script>
     <style>
         #main1 {
             width: 100%;
@@ -27,6 +28,8 @@
             padding-bottom: 0;
         }</style>
 {% endblock %}
+
+
 {% block app-content %}
     <div class="content-wrapper">
         <div class="content-header row">
