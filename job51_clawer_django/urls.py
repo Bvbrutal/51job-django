@@ -37,19 +37,22 @@ urlpatterns = [
     # 新版
     # v2主要
     path('',v2.index),
+
+    # account账户
     path('user/',account.user),
 
     # 51JOB
     path('job51/index/', v2.job51_index),
     path('job51/data_show/', v2.job51_data_show),
+    path('job51/search',v2.job51_search),
     path('job51/visualization/', v2.job51_visualization),
     path('job51/visual_screen/', v2.job51_visual_screen),
     path('job51/screen/',v2.job51_screen),
 
     # AI-TOOLS
-    path('aitools/', v2.aitools),
-    path('aitools/whisper/',v2.whisper),
-    path('aitools/pdf_gpt/',v2.pdf_gpt),
+    path('aitools/index/', v2.aitools),
+    # path('aitools/whisper/',v2.aitools_whisper),
+    path('aitools/pdf_gpt/',v2.aitools_pdf_gpt),
 
 
 

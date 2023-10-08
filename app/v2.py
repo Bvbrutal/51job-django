@@ -23,14 +23,23 @@ def index(request):
 
 # 51JOB
 def job51_index(request):
+    return render(request, 'job51/job51_index.html')
 
-    return render(request, 'job51_index.html')
 
 def job51_data_show(request):
     job51_data = joblists.objects.all()[:20]
     context = {'job51_data': job51_data}
 
-    return render(request,'job51_data_show.html',context)
+    return render(request, 'job51/job51_data_show.html', context)
+
+
+def job51_search(request):
+    query = request.GET.get('q')
+    results = []
+    if query:
+        results = joblists.objects.filter(title__icontains=query)
+    context = {'results': results, 'query': query}
+    return render(request, 'job51/job51_search.html', context)
 
 
 def job51_visual_screen(request):
@@ -87,7 +96,7 @@ def job51_visual_screen(request):
 
     context = {'data': data, 'job_conut': job_conut, 'ec1': ec1, 'ec2': ec2, 'ec5': ec5, 'ec6': ec6, 'ec31': ec31,
                'ec32': ec32, 'ec33': ec33, 'ec4': ec4, 'first_job': first_job}
-    return render(request, 'visual_screen.html', context)
+    return render(request, 'job51/visual_screen.html', context)
 
 
 def job51_screen(request):
@@ -177,31 +186,32 @@ def job51_visualization(request):
     context = {'df1': df1, 'df2': df2, 'df3': df3, 'xdata': xdata, 'ydata': ydata,
                'df4': df4, 'df5': df5,
                'df6': df6, 'df7': df7}
-    return render(request, 'visualization.html', context)
+    return render(request, 'job51/visualization.html', context)
 
 
 # AI-TOOlS
-from app import whisper
-
-model = whisper.load_model("base")
-
+# from app import whisper
+#
+# model = whisper.load_model("base")
+#
 
 def aitools(request):
-    return render(request, 'tools.html')
+
+    return render(request, 'job51/templates/aitools/aitools_index.html')
 
 
-def whisper(request):
-    if request.method == 'GET':
-        return render(request, 'whisper.html')
-    file_name = request.POST.get('file_name')
-    text = model.transcribe(file_name)
-    context = {'statu': 200,
-               "message": text['text']}
-    return JsonResponse(context)
+# def aitools_whisper(request):
+#     if request.method == 'GET':
+#         return render(request, 'aitools_whisper.html')
+#     file_name = request.POST.get('file_name')
+#     text = model.transcribe(file_name)
+#     context = {'statu': 200,
+#                "message": text['text']}
+#     return JsonResponse(context)
 
 
-def pdf_gpt(request):
-    return render(request, 'pdf_gpt.html')
+def aitools_pdf_gpt(request):
+    return render(request, 'aitools/aitools_pdf_gpt.html')
 
 
 from django.http import HttpResponseRedirect, JsonResponse

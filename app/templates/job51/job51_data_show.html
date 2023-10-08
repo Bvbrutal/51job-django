@@ -9,6 +9,9 @@
 {% block app-content %}
     <div class="content-wrapper">
         <div class="content-header row">
+            <label for="searchInput">搜索岗位</label><input type="text" id="searchInput" placeholder="输入关键字">
+            <button onclick="searchBooks()">搜索</button>
+            <ul id="searchResults"></ul>
         </div>
         <div class="content-body">
             <section id="dashboard-analytics">
@@ -57,5 +60,47 @@
 
 {% block app-foot %}
 
+    <script>// search.js
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
 
+        function searchBooks() {
+            const query = searchInput.value.toLowerCase();
+            searchResults.innerHTML = ''; // 清空之前的搜索结果
+
+            if (query.trim() === '') {
+                return; // 如果查询为空，不执行搜索
+            }
+
+            // 模拟一些书籍数据（您可以替换为实际数据）
+            const books = [
+                {title: 'Book 1', author: 'Author 1'},
+                {title: 'Book 2', author: 'Author 2'},
+                {title: 'Book 3', author: 'Author 3'},
+            ];
+
+            const matchingBooks = books.filter(book => {
+                return book.title.toLowerCase().includes(query);
+            });
+
+            if (matchingBooks.length === 0) {
+                searchResults.innerHTML = '<p>没有找到匹配的结果。</p>';
+            } else {
+                matchingBooks.forEach(book => {
+                    const li = document.createElement('li');
+                    li.textContent = `${book.title} by ${book.author}`;
+                    searchResults.appendChild(li);
+                });
+            }
+        }
+
+        // 当用户按下回车键时执行搜索
+        searchInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                searchBooks();
+            }
+        });
+    });
+    </script>
 {% endblock %}

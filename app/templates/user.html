@@ -1,5 +1,5 @@
 {% extends 'tem.html' %}
-
+{% load static %}
 {% block app-head %}
 
 {% endblock %}
@@ -7,10 +7,581 @@
 
 
 {% block app-content %}
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-left mb-0">我的账号</h2>
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/user">Home</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="/user/profile">My Account</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
 
+            <section id="page-account-settings">
+                <div class="row">
+
+                    <div class="col-xl-4 order-xl-2">
+                        <div class="card card-profile">
+                            <img src="{% static '/theme/cool/assets/images/user.jpg' %}" alt="Image placeholder" class="card-img-top">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 order-lg-2">
+                                    <div class="card-profile-image">
+                                        <a href="#">
+                                            <img src="{% static 'theme/cool/assets/images/user.gif' %}"
+                                                 class="rounded-circle">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                                <a href="/job51/index"
+                                   class="btn btn-sm btn-info mr-4 waves-effect waves-light">51job</a>
+                                <a href="/aitools/index/"
+                                   class="btn btn-sm btn-primary  float-right waves-effect waves-light">ai-tools</a>
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card-profile-stats d-flex justify-content-center">
+                                            <div>
+                                                <span class="heading">Lv.1</span>
+                                                <span class="description">Class</span>
+                                            </div>
+                                            <div>
+                                                <span class="heading">12.30</span>
+                                                <span class="description">Money</span>
+                                            </div>
+                                            <div>
+                                                <span class="heading">273.9MB</span>
+                                                <span class="description">Traffic</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <h5 class="h3" style="padding:0.8em">彭松焕</h5>
+                                    <a class="btn btn-sm btn-danger waves-effect waves-light" style="color:white"
+                                       data-toggle="modal" data-target="#delete-account-modal">删除账号</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 order-xl-1">
+                        <div class="row">
+                            <div class="col-lg-6 doudong">
+                                <div class="card bg-gradient-danger border-0">
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#pwd-up">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h2 font-weight-bold mb-0 text-white">修改登陆密码</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                                                        <i class="fa fa-lock"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="mt-3 mb-0 text-sm">
+                                                <span class="text-white mr-2"><i
+                                                        class="ni ni-lock-circle-open icon-ver"></i>&nbsp;定期修改为高强度密码以保护您的账号.</span>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 doudong">
+                                <div class="card bg-gradient-warning border-0">
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#sublink-modal">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h2 font-weight-bold mb-0 text-white">重置订阅</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                                                        <i class="fa fa-link"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="mt-3 mb-0 text-sm">
+                                                <span class="text-white mr-2"><i
+                                                        class="ni ni-single-copy-04 icon-ver"></i>&nbsp;重置并获取新的订阅地址.</span>
+                                            </p>
+                                        </div>
+                                    </a></div>
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#sublink-modal">
+                                </a></div>
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#sublink-modal">
+                            </a></div>
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#sublink-modal">
+                        </a>
+                        <div class="row"><a href="javascript:void(0);" data-toggle="modal" data-target="#sublink-modal">
+                        </a>
+                            <div class="col-lg-6 doudong"><a href="javascript:void(0);" data-toggle="modal"
+                                                             data-target="#sublink-modal">
+                            </a>
+                                <div class="card bg-gradient-info border-0"><a href="javascript:void(0);"
+                                                                               data-toggle="modal"
+                                                                               data-target="#sublink-modal">
+                                </a><a href="javascript:void(0);" data-toggle="modal" data-target="#telegram">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="h2 font-weight-bold mb-0 text-white">绑定TG账号</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                                                    <i class="fa fa-paper-plane-o"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="mt-3 mb-0 text-sm">
+                                            <span class="mr-2 text-white"><i class="ni ni-send icon-ver"></i>&nbsp;绑定后可加入 Telegram 群组签到等.</span>
+                                        </p>
+                                    </div>
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 doudong">
+                                <div class="card bg-gradient-success border-0">
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#step2-modal">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h2 font-weight-bold mb-0 text-white">二步验证</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                                                        <i class="fa fa-shield"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="mt-3 mb-0 text-sm">
+                                                <span class="text-white mr-2"><i class="ni ni-palette icon-ver"></i>&nbsp;为您的帐号添加额外的安全保障.</span>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 doudong">
+                                <div class="card bg-gradient-primary border-0">
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#dailymail-modal">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h2 font-weight-bold mb-0 text-white">每日邮件提醒设置</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                                                        <i class="fa fa-envelope-o"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="mt-3 mb-0 text-sm">
+                                                <span class="text-white mr-2"><i class="ni ni-email-83 icon-ver"></i>&nbsp;当前的设置&nbsp;:&nbsp;不发送</span>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 doudong">
+                                <div class="card bg-gradient-dark border-0">
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#unblock-ip">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="h2 font-weight-bold mb-0 text-white">IP 解封</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                                                        <i class="fa fa-power-off"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="mt-3 mb-0 text-sm">
+                                                <span class="text-white mr-2"><i
+                                                        class="ni ni-button-power icon-ver"></i>&nbsp;当前的IP: &nbsp;111.246.13.75 没有被封</span>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>最近五分钟使用IP</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">IP</th>
+                                <th scope="col">归属地</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="shadow-sm">
+                                <td>223.104.251.54</td>
+                                <td>重庆市移动</td>
+                            </tr>
+                            <tr class="shadow-sm">
+                                <td>183.230.12.227</td>
+                                <td>重庆市移动</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>登录记录</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">IP</th>
+                                <th scope="col">归属地</th>
+                                <th scope="col">登录时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="shadow-sm">
+                                <td>122.118.155.214</td>
+                                <td>台湾省中华电信(HiNet)数据中心</td>
+                                <td>2023-10-07 09:17:12</td>
+                            </tr>
+                            <tr class="shadow-sm">
+                                <td>188.166.254.168</td>
+                                <td>新加坡DigitalOcean数据中心</td>
+                                <td>2023-10-06 12:54:05</td>
+                            </tr>
+                            <tr class="shadow-sm">
+                                <td>159.223.95.104</td>
+                                <td>美国</td>
+                                <td>2023-09-20 10:43:20</td>
+                            </tr>
+                            <tr class="shadow-sm">
+                                <td>14.108.216.153</td>
+                                <td>重庆市电信</td>
+                                <td>2023-09-08 16:46:06</td>
+                            </tr>
+                            <tr class="shadow-sm">
+                                <td>118.167.18.35</td>
+                                <td>台湾省中华电信(HiNet)数据中心</td>
+                                <td>2023-08-28 11:55:24</td>
+                            </tr>
+                            <tr class="shadow-sm">
+                                <td>159.65.139.11</td>
+                                <td>新加坡DigitalOcean数据中心</td>
+                                <td>2023-08-18 10:38:49</td>
+                            </tr>
+                            <tr class="shadow-sm">
+                                <td>38.150.11.211</td>
+                                <td>美国华盛顿Cogent通信公司</td>
+                                <td>2023-08-10 15:48:18</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
-{% block app-foot %}
+<div class="modal fade" id="pwd-up" tabindex="-1" role="dialog" aria-labelledby="pwd-upModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="pwd-upModalLabel">修改密码</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form class="form-horizontal" id="user_profile_password_update">
+                <div class="modal-body">
 
+                    <div class="form-group">
+                        <label>当前密码:</label>
+                        <input id="oldpwd" class="form-control" type="password" placeholder="Old passwd">
+                    </div>
+                    <div class="form-group">
+                        <label>新密码:</label>
+                        <input id="pwd" class="form-control" type="password" placeholder="New passwd">
+                    </div>
+                    <div class="form-group">
+                        <label>重复新密码</label>
+                        <input id="repwd" class="form-control" type="password" placeholder="RE New passwd">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="pwd-update" type="button" class="btn btn-primary waves-effect waves-light">确认提交
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="telegram" tabindex="-1" role="dialog" aria-labelledby="telegramModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="telegramModalLabel">Telegram</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <span><h4 class="card-title"><span>1</span>&nbsp;&nbsp;使用快捷命令绑定</h4></span>
+                    <span>- 在 Telegram 添加机器人账号 <a href="https://t.me/sudamoebot" target="_blank">@sudamoebot</a></span>
+                    <br><br>
+                    <span>- 发送命令 <code class="cursor_onclick copy-modal"
+                                           data-clipboard-text="/start nVLge8SYTRxr2fi3">/start nVLge8SYTRxr2fi3</code> 给机器人</span>
+                    <br><br>
+                    <span><h4 class="card-title"><span>2</span>&nbsp;&nbsp;当前设备一键绑定</h4></span>
+                    <div class="col-12 kt-align-center">
+                        <a href="https://t.me/sudamoebot?start=nVLge8SYTRxr2fi3" target="_blank"
+                           class="btn btn-info waves-effect waves-light"><i class="fa fa-telegram"></i> 一键绑定
+                            Telegram</a>
+                    </div>
+                    <br>
+                    <p><code>- 请注意: Telegram 需要翻墙才能使用</code></p>
+                    <p>- 使用以上其中一种方式进行绑定 Telegram 账号</p>
+                    <p>- 绑定成功后机器人将回复您当前绑定的账号。</p>
+                    <p>- 在聊天输入框发送 <code>/start</code></p>
+                    <p>- 开始使用 Telegram 功能</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sublink-modal" tabindex="-1" role="dialog" aria-labelledby="wechat-upModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="sublink-upModalLabel">重置订阅</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="card-body">
+                    <p class="kt-callout__desc">重置节点订阅链接后，原订阅链接将失效，并生成新的订阅链接</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="sublink-reset" type="button" class="btn btn-primary waves-effect waves-light">立即重置
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="step2-modal" tabindex="-1" role="dialog" aria-labelledby="step2-upModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="step2-upModalLabel">二步验证</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><code>请使用二步验证APP扫描二维码，推荐使用 Google Authenticator</code></p>
+                <div id="ga-qr" style="text-align: center">
+                    <canvas width="256" height="256"></canvas>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary waves-effect waves-light" data-dismiss="modal"
+                        data-toggle="modal" href="#step2-2-modal">下一步
+                </button>
+                <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="step2-2-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><strong>验证动态码</strong></h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>确认动态码：</label>
+                    <input class="form-control" type="number" id="ga-code" name="ga-code">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary waves-effect waves-light" id="ga-enable-true">确定开启
+                </button>
+                <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="dailymail-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><strong>每日邮件设置</strong></h5>
+            </div>
+            <div class="modal-body" id="dailymail-modal-body">
+                <div id="dailymail-modal-body-content">
+                    <p>
+                        开启后您将在每日0点接收到您账户当前流量使用情况和公告信息，并且您可在最新接收到的邮件下方链接进入最新的官网链接</p>
+                    <p>当前状态：<code>不发送</code></p>
+                    <p></p>
+                    <div class="form-group">
+                        <label>修改状态</label>
+                        <select class="form-control" id="dailymail">
+                            <option value="1">我需要接收每日邮件</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary waves-effect waves-light" id="user_profile_dailymail">
+                    保存更改
+                </button>
+                <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="unblock-ip" tabindex="-1" role="dialog" aria-labelledby="unblock-ipModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="unblock-ipModalLabel">解封IP</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="description">当前状态&nbsp;:&nbsp;<span id="ajax-block">111.246.13.75 没有被封</span></p>
+            </div>
+            <div class="modal-footer">
+                <button id="unblock" type="button" class="btn btn-primary waves-effect waves-light">提交解封</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="delete-account-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><strong>删除账号</strong></h5>
+            </div>
+            <form class="kt-form" id="user_profile_delete_account">
+                <div class="modal-body">
+                    <p class="text-danger">注意：您的所有数据都会被永久删除，并且无法找回。</p>
+                    <p class="text-danger">请谨慎操作！请谨慎操作！请谨慎操作！</p>
+                    <div class="form-group">
+                        <label>账号密码确认</label>
+                        <div class="input-group">
+                            <input class="form-control" type="password" id="delete_passwd" name="delete_passwd">
+                            <div class="input-group-append cursor_onclick delete_passwd-password">
+                                <span class="input-group-text"><i class="fa fa-eye-slash" id="delete_passwd-none"></i><i
+                                        class="fa fa-eye" id="delete_passwd-show" style="display: none"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect waves-light" id="kill">确定删除</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">关闭
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% block app-foot %}
+<script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+<script>
+    function importSublink(client) {
+        if (client == 'ssr') {
+            oneclickImport('ssr', '?sub=1');
+        }
+        ;
+        if (client == 'clashx') {
+            oneclickImport('clashr', '?clash=1')
+        }
+        ;
+        if (client == 'clashr') {
+            oneclickImport('clashr', '?clash=2')
+        }
+        ;
+        if (client == 'shadowrocket') {
+            oneclickImport('shadowrocket', '?list=shadowrocket')
+        }
+        ;
+        if (client == 'quantumult') {
+            oneclickImport('quantumult', '?sub=1')
+        }
+        ;
+        if (client == 'quantumult_v2') {
+            oneclickImport('quantumult_v2', '?list=quantumult')
+        }
+        ;
+    }
+</script>
+<script type="text/javascript" src="{% static 'theme/cool/assets/js/scripts/jquery.qrcode.min.js' %}"></script>
+<script>
+    var ga_qr_text = 'otpauth://totp/SudaCloud-%E5%BD%AD%E6%9D%BE%E7%84%95-%E4%B8%A4%E6%AD%A5%E9%AA%8C%E8%AF%81%E7%A0%81?secret=EYCPGSQXCRQOJXDD';
+    // 二步验证 二维码
+    jQuery('#ga-qr').qrcode({
+        "text": ga_qr_text
+    });
+</script>
 
 {% endblock %}
