@@ -36,10 +36,13 @@ urlpatterns = [
     # 新版
     # v2主要
     path('', v2.index),
+    path('index/', v2.index),
 
     # account账户
-    path('user/', account.user),
-    path('login/', account.login),
+    path('user/profile', account.user_proflie),
+    path('user/register/', account.user_register),
+    path('user/login/', account.login),
+    path('user/logout/', account.logout),
 
     # 51JOB
     path('job51/index/', v2.job51_index),

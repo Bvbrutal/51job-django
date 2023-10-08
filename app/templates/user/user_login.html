@@ -156,9 +156,10 @@
 
         $(".login-button").text('正在登录').attr('disabled', true);
 
+        console.log($("#password").val())
         $.ajax({
             type: "POST",
-            url: "/login/",
+            url: "/user/login/",
             dataType: "json",
             headers: {
                 "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val(),  // 根据Django的要求，通常使用这个头部名称

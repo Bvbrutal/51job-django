@@ -47,6 +47,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "app.middleware.auth.authmiddleware",
 ]
 
 ROOT_URLCONF = "job51_clawer_django.urls"
@@ -92,7 +93,7 @@ DATABASES = {
 
         'USER': 'root',
 
-        'PASSWORD': '11223344q',
+        'PASSWORD': '123456',
 
         'HOST': 'localhost',
 
