@@ -5,16 +5,11 @@ from django.shortcuts import render
 from app.models import joblists
 
 
-# v2主要
+# 404页面
 def custom_404_view(request, exception=None):
     return render(request, '404.html', status=404)
 
 
-def login(request):
-    if request.method == 'GET':
-        return render(request, 'login.html')
-
-    return render(request, 'index.html')
 
 
 def index(request):
@@ -197,7 +192,7 @@ def job51_visualization(request):
 
 def aitools(request):
 
-    return render(request, 'job51/templates/aitools/aitools_index.html')
+    return render(request, 'aitools/aitools_index.html')
 
 
 # def aitools_whisper(request):

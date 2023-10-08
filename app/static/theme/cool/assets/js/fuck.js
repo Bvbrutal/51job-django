@@ -88,19 +88,7 @@
     }
     ;
 }));
-if (new Browser().browser == '360' || new Browser().browser == '360EE' || new Browser().browser == '360SE') {
-    $('#pjax-auth').html('<div class="kt-login__signin flipInX animated" id="pjax-auth"><div class="kt-login__head"><h2 class="kt-login__title kt-font-danger">禁止使用360浏览器</h2><div class="kt-login__desc">抵制流氓软件人人有责<br>为保护您的浏览隐私，建议使用Chrome浏览器</div></div><div class="kt-login__actions"><a href="https://www.google.cn/chrome/" class="btn btn-block btn-primary login-button">下载Chrome浏览器</a></div></div>');
-    $('#auth-page-tab').hide();
-}
-if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-    var desc = navigator.mimeTypes['application/x-shockwave-flash'].description.toLowerCase();
-    if (desc.indexOf('adobe') > -1) {
-        $('#pjax-auth').html('' + '<div class="card rounded-0 mb-0 px-2" id="pjax-auth">' + '<div class="card-header pb-1">' + '<h2 class="card-title">禁止使用360浏览器</h2>' + '</div>' + '<p class="px-2">抵制流氓软件人人有责<br>为保护您的浏览隐私，建议使用Chrome浏览器</p>' + '<div class="card-content">' + '<a href="https://www.google.cn/chrome/" class="btn btn-block btn-primary login-button">下载Chrome浏览器</a>' + '</div>' + '</div>' + '<br />');
-        $('#auth-page-tab').hide();
-    }
-    ;
-}
-;var getExplorer = (function() {
+var getExplorer = (function() {
     var explorer = window.navigator.userAgent
       , compare = function(s) {
         return (explorer.indexOf(s) >= 0);

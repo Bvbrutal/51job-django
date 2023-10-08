@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -5,24 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <title>登录 &mdash; SudaCloud</title>
 
-    <script src="/theme/cool/assets/js/663oAX_et55Nw-9sjwwB5L3PB9U.js"></script>
-    <link rel="shortcut icon" href="../static/assets/img/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/cool.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/plugins/sweetalert2.min.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/theme/style-red.css">
-    <link rel="stylesheet" type="text/css" href="/theme/cool/assets/css/all.min.css">
-    <script>
-        var isWeixin = function () {
-            var ua = navigator.userAgent.toLowerCase();
-            return ua.match(/MicroMessenger/i) == "micromessenger";
-        };
-        if (isWeixin() == true) {
-            $('body').html('<h5 style="margin:20px">不支持在微信内访问<br>请点击右上角菜单<br>选择浏览器打开</h5>')
-        }
-    </script>
+    <script src="{% static 'theme/cool/assets/js/663oAX_et55Nw-9sjwwB5L3PB9U.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.ico' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/cool.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/vendors/css/vendors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/bootstrap-extended.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/plugins/sweetalert2.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/theme/style-red.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/all.min.css' %}">
 </head>
 
 <body class="vertical-layout vertical-menu-modern 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page"
@@ -40,7 +32,8 @@
                     <div class="card bg-authentication rounded-0 mb-0">
                         <div class="row m-0">
                             <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                <img src="https://v2.suda.moe/theme/cool/assets/images/logo.gif" alt="branding logo">
+                                <img src="{% static 'theme/cool/assets/images/elements/logo.gif' %}"
+                                     alt="branding logo">
                             </div>
                             <div class="col-lg-6 col-12 p-0">
                                 <div class="card rounded-0 mb-0 px-2" id="pjax-auth">
@@ -53,7 +46,8 @@
                                     <div class="card-content">
                                         <div class="card-body pt-1">
                                             <form class="form-group" action="javascript:void(0);" method="POST"
-                                                  novalidate id="login-form">
+                                                  novalidate id="login-form" style="padding-bottom: 20px">
+                                                {% csrf_token %}
                                                 <fieldset class="form-label-group position-relative has-icon-left">
                                                     <div class="input-group login-form">
                                                         <input id="email" class="form-control" type="text"
@@ -92,10 +86,10 @@
                                                             <div class="vs-checkbox-con vs-checkbox-primary">
                                                                 <input type="checkbox">
                                                                 <span class="vs-checkbox">
-<span class="vs-checkbox--check">
-<i class="vs-icon feather icon-check"></i>
-</span>
-</span>
+                                                                    <span class="vs-checkbox--check"><i
+                                                                            class="vs-icon feather icon-check"></i>
+                                                                    </span>
+                                                                </span>
                                                                 <span>记住我</span>
                                                             </div>
                                                         </fieldset>
@@ -111,21 +105,6 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="login-footer">
-                                        <div class="divider">
-                                            <div class="divider-text">OR</div>
-                                        </div>
-                                        <div class="footer-btn d-inline">
-                                            <button type="button" class="btn btn-block btn-primary white"
-                                                    id="telegram-login" data-toggle="modal"
-                                                    data-target="#telegram-modal"><i class="fab fa-telegram-plane"></i>&nbsp;&nbsp;使用
-                                                Telegram 登录
-                                            </button>
-                                        </div>
-                                        <span class="float-md-left mb-1">Copyright &copy; 2023 SudaCloud • <a
-                                                class="text-bold-800 grey darken-2" href="/staff"
-                                                target="_blank">Staff</a></span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -136,43 +115,12 @@
     </div>
 </div>
 
-
-<div class="modal fade" id="telegram-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><strong>Telegram 一键登录</strong></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="text-center mt-1 mb-1" id="telegram-login-box">
-                </div>
-                <div class="text-center mb-1">
-                    <div class="text-job text-muted">或者添加机器人账号 <a href="https://t.me/@sudamoebot"
-                                                                           target="_blank">@sudamoebot</a>，发送下面的数字给它
-                    </div>
-                </div>
-                <div class="text-center">
-                    <h2><code id="code_number" style="color: #6777ef">351779</code></h2>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script src="/theme/cool/assets/js/jquery.min.js"></script>
-<script src="/theme/cool/assets/js/fuck.js"></script>
-<script src="/theme/cool/assets/js/notify.js"></script>
-<script src="/theme/cool/assets/js/sweetalert2.min.js"></script>
-<script src="/theme/cool/assets/js/bootstrap.min.js"></script>
-<script src="/theme/cool/assets/js/jquery.validate.min.js"></script>
+<script src="{% static '/theme/cool/assets/js/jquery.min.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/fuck.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/notify.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/sweetalert2.min.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/jquery.validate.min.js' %}"></script>
 
 
 <script>
@@ -200,6 +148,7 @@
                 error.addClass('invalid-feedback');
             }
         });
+
         if (!form.valid()) {
             return;
         }
@@ -209,22 +158,25 @@
 
         $.ajax({
             type: "POST",
-            url: "/auth/login",
+            url: "/login/",
             dataType: "json",
+            headers: {
+                "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val(),  // 根据Django的要求，通常使用这个头部名称
+            },
             data: {
                 email: $("#email").val(),
                 passwd: $("#password").val(),
-                code: $("#2fa-code").val(), remember_me: $("#remember-me:checked").val()
+                code: $("#2fa-code").val(), remember_me: $("#remember-me:checked").val(),
             },
             success: function (data) {
-                if (data.ret == 1) {
+                if (data.ret === 1) {
                     $.notify({
                         title: '<strong>' + data.msg + '</strong>',
                         message: '正在转入用户中心'
                     }, {type: 'success', placement: {from: "top", align: "center"},});
-                    window.setTimeout("location.href='/user'", 1000);
+                    window.setTimeout("location.href='/index'", 1000);
 
-                } else if (data.ret == 2) {
+                } else if (data.ret === 2) {
                     $(".login-button").text('登录').attr('disabled', false);
                     $('#2fa-form').show('fast');
                     $.notify({
@@ -259,117 +211,9 @@
                         }
                     });
                 }
-                ;
             }
         });
     });
 </script>
-
-
-<script>
-    $(document).ready(function () {
-        var el = document.createElement('script');
-        document.getElementById('telegram-login-box').append(el);
-        el.onload = function () {
-            $('#telegram-alert').remove()
-        }
-        el.src = 'https://telegram.org/js/telegram-widget.js?4';
-        el.setAttribute('data-size', 'large')
-        el.setAttribute('data-telegram-login', 'sudamoebot')
-        el.setAttribute('data-auth-url', 'https://v2.suda.moe/auth/telegram_oauth')
-        el.setAttribute('data-request-access', 'write')
-    });
-</script>
-<script>
-    $(document).ready(function () {
-        $("#telegram-login").click(
-            function () {
-                tgLogin();
-            }
-        );
-
-        function tgLogin() {
-            $.ajax({
-                type: "POST",
-                url: "qrcode_check",
-                dataType: "json",
-                data: {
-                    token: "iT8MWvofQUc9NVJp",
-                    number: "351779"
-                },
-                success: (data) => {
-                    if (data.ret > 0) {
-                        clearTimeout(tid);
-                        $.ajax({
-                            type: "POST",
-                            url: "/auth/qrcode_login",
-                            dataType: "json",
-                            data: {
-                                token: "iT8MWvofQUc9NVJp",
-                                number: "351779"
-                            },
-                            success: (data) => {
-                                if (data.ret) {
-                                    swal.fire({
-                                        type: 'success',
-                                        title: '登录成功',
-                                        html: '正在转入用户中心',
-                                        showConfirmButton: false
-                                    });
-                                    window.setTimeout("location.href='/user'", 2000);
-                                }
-                            },
-                            error: (jqXHR) => {
-                                $.notify({
-                                    title: '<strong>Telegram登录失败</strong>',
-                                    message: '请使用账号密码登录'
-                                }, {
-                                    type: 'danger',
-                                    placement: {
-                                        from: "top",
-                                        align: "center"
-                                    },
-                                    timer: 2000,
-                                    animate: {
-                                        enter: 'animated zoomIn',
-                                        exit: 'animated zoomOut'
-                                    }
-                                });
-                            }
-                        });
-                    } else {
-                        if (data.ret === -1) {
-                            $('#code_number').replaceWith('<code id="code_number">此数字已经过期，请刷新页面后重试。</code>');
-                        }
-                    }
-                },
-                error: (jqXHR) => {
-                    if (jqXHR.status !== 200 && jqXHR.status !== 0) {
-                        swal('TG登录失败', '请使用账号密码登录', 'error');
-                    }
-                }
-            });
-            tid = setTimeout(tgLogin, 2500); //循环调用触发setTimeout
-        }
-    })
-</script>
-
-<script>
-    var isWeixin = function () {
-        var ua = navigator.userAgent.toLowerCase();
-        return ua.match(/MicroMessenger/i) == "micromessenger";
-    };
-    if (isWeixin() == true) {
-        $('#pjax-auth').html('' +
-            '<div class="kt-login__signin flipInX animated" id="pjax-auth">' +
-            '<div class="kt-login__head">' +
-            '<h2 class="kt-login__title kt-font-danger">不支持在微信内访问</h2>' +
-            '<div class="kt-login__desc">请点击右上角菜单，选择浏览器打开</div>' +
-            '</div>' +
-            '</div>');
-        $('#auth-page-tab').hide();
-    }
-</script>
-
 </body>
 </html>
