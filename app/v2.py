@@ -2,7 +2,8 @@ import pandas as pd
 from django.shortcuts import render
 
 # 使用Django ORM查询
-from app.models import joblists
+from app.models import joblists, UserIP
+from app.script.visit_info import change_info
 
 
 # 404页面
@@ -13,7 +14,11 @@ def custom_404_view(request, exception=None):
 
 
 def index(request):
-    return render(request, 'index.html')
+    change_info(request, '/index')
+    city=UserIP.objects.all()
+    print([i for i in city.values_list()])
+    context={'city':city}
+    return render(request, 'index.html',context)
 
 
 # 51JOB

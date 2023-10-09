@@ -60,6 +60,7 @@ urlpatterns = [
     # 404页面
     path('404/', TemplateView.as_view(template_name='404.html'), name='404'),
 
+
 ]
 
 handler404 = 'app.v2.custom_404_view'

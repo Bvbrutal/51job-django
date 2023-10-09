@@ -1,8 +1,9 @@
 import pandas as pd
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # 使用Django ORM查询
-from app.models import joblists
+from app.models import joblists, UserIP
+from app.script.visit_info import change_info
 
 
 def main(request):
@@ -110,4 +111,3 @@ def show(request):
 
     context={'data': data,'job_conut':job_conut,'ec1': ec1,'ec2':ec2,'ec5':ec5,'ec6':ec6,'ec31':ec31,'ec32':ec32,'ec33':ec33,'ec4':ec4,'first_job':first_job}
     return render(request, 'old/show.html', context)
-
