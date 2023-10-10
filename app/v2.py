@@ -1,4 +1,5 @@
 import pandas as pd
+from django.db.models import Sum, Count
 from django.shortcuts import render
 
 # 使用Django ORM查询
@@ -11,20 +12,25 @@ def custom_404_view(request, exception=None):
     return render(request, '404.html', status=404)
 
 
-
-
 def index(request):
     change_info(request, '/index')
-    city=UserIP.objects.all().last()
-    context={'city':city}
-    print(context['city'].ip,context['city'].ip_addr)
+    city = UserIP.objects.all().last()
+    context = {'city': city}
+    print(context['city'].ip, context['city'].ip_addr)
 
-    return render(request, 'index.html',context)
+    return render(request, 'index.html', context)
 
 
 # 51JOB
 def job51_index(request):
-    return render(request, 'job51/job51_index.html')
+    job_top = joblists.objects.values('JobTitle').annotate(total=Count('ID')).order_by('-total')[:10]
+    Occupation_top = joblists.objects.values('OccupationCategory').annotate(total=Count('ID')).order_by('-total')[:10]
+    context = {
+        'job_top': job_top,
+        'Occupation_top': Occupation_top
+    }
+    print(Occupation_top)
+    return render(request, 'job51/job51_index.html', context)
 
 
 def job51_data_show(request):
@@ -197,7 +203,6 @@ def job51_visualization(request):
 #
 
 def aitools(request):
-
     return render(request, 'aitools/aitools_index.html')
 
 
@@ -228,3 +233,14 @@ def upload_file(request):
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
+
+
+from .models import Game
+
+def play_game(request):
+    # 游戏逻辑，包括贪吃蛇移动、食物生成等
+    game = Game.objects.first()  # 获取游戏状态
+    context = {
+        "game": game,
+    }
+    return render(request, "snake_game/play_game.html", context)

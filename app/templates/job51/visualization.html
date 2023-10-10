@@ -37,6 +37,28 @@
         <div class="content-body">
             <section id="dashboard-analytics">
                 <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="input-group">
+                                        <label for="searchInput" class="input-group-prepend">
+                                            <span class="input-group-text">搜索岗位</span>
+                                        </label>
+                                        <input type="text" id="searchInput" class="form-control"
+                                               placeholder="输入关键字">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" onclick="searchBooks()">搜索
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <ul id="searchResults" class="list-group mt-3"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-6 col-12">
                         <div class="card">
                             <div class="card-content">

@@ -90,3 +90,6 @@ class DayNumber(models.Model):
 class HotSearchKeyword(models.Model):
     keyword = models.CharField(max_length=100)
     count = models.IntegerField(default=0)
+
+class Game(models.Model):
+    score = models.IntegerField(default=0)

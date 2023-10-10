@@ -60,6 +60,8 @@ urlpatterns = [
     # 404页面
     path('404/', TemplateView.as_view(template_name='404.html'), name='404'),
 
+    # 贪吃蛇
+    path('play_game/', v2.play_game, name='play_game'),
 
 ]
 
