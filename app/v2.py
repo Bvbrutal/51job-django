@@ -15,9 +15,10 @@ def custom_404_view(request, exception=None):
 
 def index(request):
     change_info(request, '/index')
-    city=UserIP.objects.all()
-    print([i for i in city.values_list()])
+    city=UserIP.objects.all().last()
     context={'city':city}
+    print(context['city'].ip,context['city'].ip_addr)
+
     return render(request, 'index.html',context)
 
 
@@ -29,7 +30,6 @@ def job51_index(request):
 def job51_data_show(request):
     job51_data = joblists.objects.all()[:20]
     context = {'job51_data': job51_data}
-
     return render(request, 'job51/job51_data_show.html', context)
 
 
@@ -38,6 +38,7 @@ def job51_search(request):
     results = []
     if query:
         results = joblists.objects.filter(title__icontains=query)
+
     context = {'results': results, 'query': query}
     return render(request, 'job51/job51_search.html', context)
 

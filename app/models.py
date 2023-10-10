@@ -84,3 +84,9 @@ class DayNumber(models.Model):
 
     def __str__(self):
         return str(self.day)
+
+
+
+class HotSearchKeyword(models.Model):
+    keyword = models.CharField(max_length=100)
+    count = models.IntegerField(default=0)
