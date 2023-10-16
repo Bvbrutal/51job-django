@@ -40,7 +40,7 @@
 
         //动态创建，页面上显示的食物
         var img = document.createElement('img');
-        img.src = 'Blue Wheeled Triskelion 2.ico';
+        img.src = '../img/service_icon_bg_1.png';
        // var div = document.createElement('div');
         map.appendChild(img);
         elements.push(img);
@@ -110,11 +110,11 @@
         remove();
         //把每一个蛇节渲染到地图上
         for (var i = 0, len = this.body.length; i < len; i++) {
-            if (i == 0) {
+            if (i === 0) {
                 //把蛇头渲染到地图
                 var objecthead = this.body[0];
                 var snakeHead = document.createElement('img');
-                snakeHead.src = 'Blue Wheeled Triskelion 2.ico';
+                snakeHead.src = 'assets/img/favicon.ico';
                 map.appendChild(snakeHead);
                 //记录当前蛇头
                 elements.push(snakeHead);

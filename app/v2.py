@@ -237,10 +237,11 @@ def upload_file(request):
 
 from .models import Game
 
-def play_game(request):
+def snake(request):
+
+    return render(request, "games/snake.html")
+
+
+def els(request):
     # 游戏逻辑，包括贪吃蛇移动、食物生成等
-    game = Game.objects.first()  # 获取游戏状态
-    context = {
-        "game": game,
-    }
-    return render(request, "snake_game/play_game.html", context)
+    return render(request, "games/els.html")

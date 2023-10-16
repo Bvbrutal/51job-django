@@ -1,0 +1,15 @@
+#map{
+    background-color: lightgray;
+    position: relative;
+}
+
+#score{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: '微软雅黑';
+}
+

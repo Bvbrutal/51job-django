@@ -33,31 +33,37 @@
 {% block app-content %}
     <div class="content-wrapper">
         <div class="content-header row">
-        </div>
-        <div class="content-body">
-            <section id="dashboard-analytics">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <div class="input-group">
-                                        <label for="searchInput" class="input-group-prepend">
-                                            <span class="input-group-text">搜索岗位</span>
-                                        </label>
-                                        <input type="text" id="searchInput" class="form-control"
-                                               placeholder="输入关键字">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="searchBooks()">搜索
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <ul id="searchResults" class="list-group mt-3"></ul>
-                                </div>
+            <div class="content-header-right col-md-12 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-6">
+                        <h2 class="content-header-title float-left mb-0">可视化</h2>
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/index">Home</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="/job51/visualization">Visual_screen</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="searchInput" class="input-group-prepend">
+                                <span class="input-group-text">搜索岗位</span>
+                            </label>
+                            <input type="text" id="searchInput" class="form-control"
+                                   placeholder="输入关键字">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" onclick="searchBooks()">搜索
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <section id="dashboard-analytics">
                 <div class="row">
                     <div class="col-md-6 col-12">
                         <div class="card">
