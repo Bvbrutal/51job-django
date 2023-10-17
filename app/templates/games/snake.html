@@ -14,7 +14,8 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="card">
-                            <div id="map" style="background-color: #0b0b0b;width: 100%;height: 550px;margin: 10px"></div>
+                            <div id="map"
+                                 style="background-color: #0b0b0b;width: 100%;height: 550px;margin: 10px"></div>
                             <div>
                                 <div id="score">
                                     得分：<span id="score_value">0</span>
@@ -352,6 +353,26 @@
             var game = new Game(map);
             game.start();
         })(window, undefined)
-
+    </script>
+    <script>
+        $(document).ready(function () {
+            var name = prompt("请输入您的姓名:");
+            if (name !== null) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/others/snake/',
+                    data: {
+                        'name': name,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    success: function () {
+                        console.log("姓名已成功传递到后端！");
+                    },
+                    error: function () {
+                        alert("发送数据时出现错误，请重试！");
+                    }
+                });
+            }
+        });
     </script>
 {% endblock %}

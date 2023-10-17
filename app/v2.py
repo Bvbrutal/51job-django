@@ -220,7 +220,7 @@ def aitools_pdf_gpt(request):
     return render(request, 'aitools/aitools_pdf_gpt.html')
 
 
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 
 
 def upload_file(request):
@@ -238,7 +238,10 @@ def upload_file(request):
 from .models import Game
 
 def snake(request):
+    if request.method == 'POST':
+        name = request.POST.get('name', '')
 
+        return
     return render(request, "games/snake.html")
 
 
