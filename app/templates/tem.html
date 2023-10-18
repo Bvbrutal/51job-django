@@ -193,39 +193,6 @@
 <script src="{% static 'theme/cool/assets/js/core/app-menu.js' %}"></script>
 <script src="{% static 'theme/cool/assets/vendors/js/charts/apexcharts.min.js' %}"></script>
 <script src="{% static 'theme/cool/assets/js/scripts/pages/dashboard-ecommerce.js' %}"></script>
-<script>
-    var sessionChartoptions = {
-        chart: {
-            type: 'donut',
-            height: 325,
-            toolbar: {
-                show: false
-            }
-        },
-        dataLabels: {
-            enabled: false
-        },
-        series: [0.045769472471761, 99.952428821919, 0.0018017056087653],
-        legend: {show: false},
-        comparedResult: [2, -3, 8],
-        labels: ['可用', '已用', '今日已用'],
-        stroke: {width: 0},
-        colors: ['#7367F0', '#FF9F43', '#EA5455'],
-        fill: {
-            type: 'gradient',
-            gradient: {
-                gradientToColors: ['#A9A2F6', '#ffc085', '#f29292']
-            }
-        }
-    }
-</script>
-<script>
-    $("#reset-link").click(function () {
-        swal('重置成功', "请变更或添加您的订阅链接！～～", 'success');
-        window.setTimeout("location.href='/user/url_reset'", 1200);
-    });
-</script>
-
 
 {% block app-foot %}{% endblock %}
 

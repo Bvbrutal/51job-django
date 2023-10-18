@@ -3,7 +3,7 @@ from django.db.models import Sum, Count
 from django.shortcuts import render
 
 # 使用Django ORM查询
-from app.models import joblists, UserIP
+from app.models import Joblists, UserIP
 from app.script.visit_info import change_info
 
 
@@ -23,8 +23,8 @@ def index(request):
 
 # 51JOB
 def job51_index(request):
-    job_top = joblists.objects.values('JobTitle').annotate(total=Count('ID')).order_by('-total')[:10]
-    Occupation_top = joblists.objects.values('OccupationCategory').annotate(total=Count('ID')).order_by('-total')[:10]
+    job_top = Joblists.objects.values('JobTitle').annotate(total=Count('ID')).order_by('-total')[:10]
+    Occupation_top = Joblists.objects.values('OccupationCategory').annotate(total=Count('ID')).order_by('-total')[:10]
     context = {
         'job_top': job_top,
         'Occupation_top': Occupation_top
@@ -34,7 +34,7 @@ def job51_index(request):
 
 
 def job51_data_show(request):
-    job51_data = joblists.objects.all()[:20]
+    job51_data = Joblists.objects.all()[:20]
     context = {'job51_data': job51_data}
     return render(request, 'job51/job51_data_show.html', context)
 
@@ -43,14 +43,14 @@ def job51_search(request):
     query = request.GET.get('q')
     results = []
     if query:
-        results = joblists.objects.filter(title__icontains=query)
+        results = Joblists.objects.filter(title__icontains=query)
 
     context = {'results': results, 'query': query}
     return render(request, 'job51/job51_search.html', context)
 
 
 def job51_visual_screen(request):
-    queryset = joblists.objects.all()
+    queryset = Joblists.objects.all()
     data = list(queryset.values())
     df = pd.DataFrame(data)
     job_conut = len(df)
@@ -107,7 +107,7 @@ def job51_visual_screen(request):
 
 
 def job51_screen(request):
-    queryset = joblists.objects.all()
+    queryset = Joblists.objects.all()
     data = list(queryset.values())
     df = pd.DataFrame(data)
     job_conut = len(df)
@@ -165,7 +165,7 @@ def job51_screen(request):
 
 def job51_visualization(request):
     # data1
-    queryset = joblists.objects.all()
+    queryset = Joblists.objects.all()
     data = list(queryset.values())
     df = pd.DataFrame(data)
     df1 = df['Area'].value_counts()[:5]
@@ -203,6 +203,7 @@ def job51_visualization(request):
 #
 
 def aitools(request):
+
     return render(request, 'aitools/aitools_index.html')
 
 
@@ -235,16 +236,23 @@ def upload_file(request):
     return render(request, 'upload.html', {'form': form})
 
 
-from .models import Game
+from .models import Snake,Els
 
 def snake(request):
     if request.method == 'POST':
-        name = request.POST.get('name', '')
+        name = request.POST.get('name')
+        score = request.POST.get('score')
 
-        return
+        print(name,score)
+
+        return HttpResponse()
     return render(request, "games/snake.html")
 
 
 def els(request):
-    # 游戏逻辑，包括贪吃蛇移动、食物生成等
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        # Els.objects.
+        return HttpResponse()
+
     return render(request, "games/els.html")

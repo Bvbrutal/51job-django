@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from .models import user
+from .models import User
 
 
 def login(request):
@@ -13,7 +13,7 @@ def login(request):
     email = request.POST.get('email')
     passwd = request.POST.get('passwd')
     # code = request.POST.get('code')
-    user_object = user.objects.filter(email=email, password=passwd).first()
+    user_object = User.objects.filter(email=email, password=passwd).first()
     if user_object:
         request.session['info'] = {'id': user_object.id, 'email': user_object.email}
         context = {
@@ -21,7 +21,7 @@ def login(request):
             'msg': "登陆成功"
         }
         return JsonResponse(context, safe=False)
-    elif user.objects.filter(email=email).first() or user.objects.filter(password=passwd).first():
+    elif User.objects.filter(email=email).first() or User.objects.filter(password=passwd).first():
         context = {
             'ret': 2,
             'msg': "账号或密码错误!"

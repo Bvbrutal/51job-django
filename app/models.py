@@ -16,7 +16,7 @@ from django.utils import timezone
 '''
 
 
-class joblists(models.Model):
+class Joblists(models.Model):
     ID = models.AutoField(primary_key=True)
     CompanyName = models.CharField(max_length=255, null=True, blank=True, verbose_name="公司名称")
     JobTitle = models.CharField(max_length=255, null=True, blank=True, verbose_name="岗位名称")
@@ -37,16 +37,16 @@ class joblists(models.Model):
         ]
 
 
-class aitools_Files(models.Model):
+class Aitools_Files(models.Model):
     title = models.CharField(max_length=255, verbose_name='文件名')
     file = models.FileField(upload_to='static/file/aitools/', verbose_name='文件地址')
     add_time = models.DateField(default=timezone.now, verbose_name='文件添加时间')
 
 
-class user(models.Model):
+class User(models.Model):
     email = models.CharField(max_length=32, verbose_name='邮箱')
     password = models.CharField(max_length=64, verbose_name='密码')
-    admin = models.SmallIntegerField(default=0,verbose_name='管理员')
+    admin = models.SmallIntegerField(default=0, verbose_name='管理员')
 
 
 # 访问网站的 ip 地址、端点和次数
@@ -86,10 +86,18 @@ class DayNumber(models.Model):
         return str(self.day)
 
 
-
 class HotSearchKeyword(models.Model):
     keyword = models.CharField(max_length=100)
     count = models.IntegerField(default=0)
 
-class Game(models.Model):
-    score = models.IntegerField(default=0)
+
+class Snake(models.Model):
+    name = models.CharField(max_length=32, verbose_name='姓名')
+    snake_score = models.IntegerField(default=0, verbose_name='贪吃蛇分数')
+    snake_date = models.DateField(default=timezone.now, verbose_name='贪吃蛇日期')
+
+
+class Els(models.Model):
+    name = models.CharField(max_length=32, verbose_name='姓名')
+    els_score = models.IntegerField(default=0, verbose_name='俄罗斯方块分数')
+    els_date = models.DateField(default=timezone.now, verbose_name='俄罗斯方块日期')

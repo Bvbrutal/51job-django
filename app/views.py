@@ -2,7 +2,7 @@ import pandas as pd
 from django.shortcuts import render, get_object_or_404
 
 # 使用Django ORM查询
-from app.models import joblists, UserIP
+from app.models import Joblists, UserIP
 from app.script.visit_info import change_info
 
 
@@ -15,13 +15,13 @@ def index(request):
 
 
 def pythoninfo(request):
-    df = joblists.objects.all()[:100]
+    df = Joblists.objects.all()[:100]
     return render(request, 'old/pythoninfo.html', {'data': df})
 
 
 def analysis(request):
     # data1
-    queryset = joblists.objects.all()
+    queryset = Joblists.objects.all()
     data = list(queryset.values())
     df =  pd.DataFrame(data)
     df1 = df['Area'].value_counts()[:20]
@@ -57,7 +57,7 @@ def wordcloud(request):
 
 
 def show(request):
-    queryset = joblists.objects.all()
+    queryset = Joblists.objects.all()
     data = list(queryset.values())
     df = pd.DataFrame(data)
     job_conut=len(df)
