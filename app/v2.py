@@ -242,9 +242,7 @@ def snake(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         score = request.POST.get('score')
-
         print(name,score)
-
         return HttpResponse()
     return render(request, "games/snake.html")
 

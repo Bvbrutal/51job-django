@@ -27,18 +27,18 @@
             </section>
         </div>
     </div>
-    <div class="modal fade show" id="unblock-ip" tabindex="-1" role="dialog" aria-labelledby="unblock-ipModalLabel"
+    <div class="modal fade" id="unblock-ip" tabindex="-1" role="dialog" aria-labelledby="unblock-ipModalLabel"
          style="display: block; padding-right: 6px;" aria-modal="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 id="unblock-ipModalLabel">解封IP</h4>
+                    <h4 id="unblock-ipModalLabel">游戏结束！</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p class="description">当前状态&nbsp;:&nbsp;<span id="ajax-block">118.167.18.138 没有被封</span></p>
+                    <p class="description">请输入你的&nbsp;&nbsp;<span id="ajax-block">姓名</span></p>
                 </div>
                 <div class="modal-footer">
                     <button id="unblock" type="button" class="btn btn-primary waves-effect waves-light">提交解封
@@ -349,15 +349,17 @@
                     var maxY = this.map.offsetHeight / this.snake.height;
                     var headX = this.snake.body[0].x;
                     var headY = this.snake.body[0].y;
+                    var modal = document.getElementById('unblock-ip');
                     if (headX < 0 || headX >= maxX || headY < 0 || headY >= maxY) {
-                        alert('撞到边界了！Game Over');
+                        modal.classList.add('show');
                         sendPostRequest(this.snake.score)
                         clearInterval(timerId);
                     }
                     // 吃到自己死亡，从第五个开始与头判断，因为前四个永远撞不到
                     for (var i = 4; i < this.snake.body.length; i++) {
                         if (this.snake.body[0].x === this.snake.body[i].x && this.snake.body[0].y === this.snake.body[i].y) {
-                            alert("咬到自己啦！Game Over");
+                            console.log(this.snake.score)
+                            modal.classList.add('show');
                             sendPostRequest(this.snake.score)
                             clearInterval(timerId);   // 清除定时器
                         }
@@ -365,10 +367,20 @@
                 }.bind(that), 150);
             }
 
-            function sendPostRequest(score) {
-                $(document).ready(function () {
-                    var name = prompt("请输入您的姓名:");
+            function sendPostRequest(score,name) {
+                document.addEventListener("DOMContentLoaded", function (event) {
                     if (name !== null) {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/others/snake/',
+                            data: {
+                                'name': name,
+                                'score': score,
+                                'csrfmiddlewaretoken': '{{ csrf_token }}'
+                            }
+                        });
+                    }
+                    else{
                         $.ajax({
                             type: 'POST',
                             url: '/others/snake/',
@@ -381,7 +393,6 @@
                     }
                 });
                 // 发送POST请求
-
             }
 
             //暴露构造函数给外部
