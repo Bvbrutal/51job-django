@@ -93,7 +93,7 @@ DATABASES = {
 
         'USER': 'root',
 
-        'PASSWORD': '123456',
+        'PASSWORD': '11223344q',
 
         'HOST': 'localhost',
 

@@ -2,6 +2,9 @@ import pandas as pd
 from django.db.models import Sum, Count
 from django.shortcuts import render
 
+#名言警句爬虫函数引用
+from app.script.Aphorisms import sentence
+
 # 使用Django ORM查询
 from app.models import Joblists, UserIP, User
 from app.script.visit_info import change_info
@@ -17,9 +20,9 @@ def index(request):
     city = UserIP.objects.all().last()
     email=request.session['info']['email']
     name=User.objects.filter(email=email).first().name
-    context = {'city': city,'name':name}
+    sentences=sentence()
+    context = {'city': city,'name':name,'sentences':sentences}
     print(context['city'].ip, context['city'].ip_addr)
-
     return render(request, 'index/index.html', context)
 
 
