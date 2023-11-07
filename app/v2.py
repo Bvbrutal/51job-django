@@ -3,7 +3,7 @@ from django.db.models import Sum, Count
 from django.shortcuts import render
 
 # 使用Django ORM查询
-from app.models import Joblists, UserIP
+from app.models import Joblists, UserIP, User
 from app.script.visit_info import change_info
 
 
@@ -15,7 +15,9 @@ def custom_404_view(request, exception=None):
 def index(request):
     change_info(request, '/index')
     city = UserIP.objects.all().last()
-    context = {'city': city}
+    email=request.session['info']['email']
+    name=User.objects.filter(email=email).first().name
+    context = {'city': city,'name':name}
     print(context['city'].ip, context['city'].ip_addr)
 
     return render(request, 'index/index.html', context)
@@ -41,11 +43,11 @@ def job51_data_show(request):
 
 def job51_search(request):
     query = request.GET.get('keyword')
-    print(query)
     results = []
-    # if query:
-    #     results = Joblists.objects.filter(title__icontains=query)
+    if query:
+        results = Joblists.objects.filter(JobTitle__icontains=query)[:20]
     context = {'results': results, 'query': query}
+    print(context)
     return render(request, 'job51/job51_search.html', context)
 
 

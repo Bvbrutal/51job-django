@@ -1,23 +1,94 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>搜索结果</title>
-</head>
-<body>
-    <h1>搜索结果</h1>
-    <form method="get" action="{% url 'job51_search' %}">
-        <input type="text" name="q" value="{{ query }}">
-        <button type="submit">搜索</button>
-    </form>
+{% extends 'test/tem.html' %}
+{% load static %}
+{% block app-head %}
 
-    {% if results %}
-        <ul>
-            {% for book in results %}
-                <li>{{ book.title }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>没有找到匹配的结果。</p>
-    {% endif %}
-</body>
-</html>
+{% endblock %}
+
+
+
+{% block app-content %}
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-right col-md-12 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="input-group">
+                        <label for="searchInput" class="input-group-prepend">
+                            <span class="input-group-text">搜索岗位</span>
+                        </label>
+                        <input type="text" id="searchInput" class="form-control"
+                               placeholder="输入关键字">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" onclick="searchJobs()">搜索
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <section id="dashboard-analytics">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card text-black">
+                            <div class="card-content" style="overflow: hidden;padding: 10px">
+                                <table border="1px" class="table-striped">
+                                    <tr>
+                                        <td align="center">岗位名称</td>
+                                        <td align="center" width="50px">地区</td>
+                                        <td align="center" width="150px">公司全称</td>
+                                        <td align="center">薪资</td>
+                                        <td align="center" width="50px">学历要求</td>
+                                        <td align="center" width="150px">职业类别</td>
+                                        <td align="center" width="150px">招收对象</td>
+                                        <td align="center" width="50px">企业类别</td>
+                                        <td align="center" width="100px">更新时间</td>
+                                        <td align="center">关键字</td>
+                                    </tr>
+                                    {% for i in results %}
+                                        <tr>
+                                            <td align="center">{{ i.JobTitle }}</td>
+                                            <td align="center">{{ i.Area }}</td>
+                                            <td align="center">{{ i.CompanyName }}</td>
+                                            <td align="center">{{ i.Salary }}</td>
+                                            <td align="center">{{ i.EducationRequirement }}</td>
+                                            <td align="center">{{ i.OccupationCategory }}</td>
+                                            <td align="center">{{ i.RecruitingTargets }}</td>
+                                            <td align="center">{{ i.EnterpriseCategory }}</td>
+                                            <td align="center">{{ i.UpdateTime }}</td>
+                                            <td align="center">{{ i.Keywords }}</td>
+                                        </tr>
+                                    {% empty %}
+                                        <li><span class="h4 font-weight-bold mb-0" style="margin-top: 20px">暂无搜索结果</span></li>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block app-foot %}
+    <script>
+        function searchJobs() {
+            var keyword = $('#searchInput').val();
+            $.ajax({
+                type: 'GET',
+                url: '/job51/search/', // 替换为您的搜索URL
+                data: {
+                    'keyword': keyword
+                },
+                success: function (response) {
+                    // 在成功回调函数中，将页面重定向到另一个页面
+                    window.location.href = '/job51/search/?keyword=' + keyword;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+
+{% endblock %}

@@ -54,7 +54,7 @@
                             <input type="text" id="searchInput" class="form-control"
                                    placeholder="输入关键字">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="searchBooks()">搜索
+                                <button class="btn btn-primary" type="button" onclick="searchJobs()">搜索
                                 </button>
                             </div>
                         </div>
@@ -287,5 +287,24 @@
 
         option && myChart.setOption(option);
 
+    </script>
+    <script>
+        function searchJobs() {
+            var keyword = $('#searchInput').val();
+            $.ajax({
+                type: 'GET',
+                url: '/job51/search/', // 替换为您的搜索URL
+                data: {
+                    'keyword': keyword
+                },
+                success: function (response) {
+                    // 在成功回调函数中，将页面重定向到另一个页面
+                    window.location.href = '/job51/search/?keyword=' + keyword;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
     </script>
 {% endblock %}
