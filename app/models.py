@@ -39,7 +39,7 @@ class Joblists(models.Model):
 
 class Aitools_Files(models.Model):
     title = models.CharField(max_length=255, verbose_name='文件名')
-    file = models.FileField(upload_to='static/file/aitools/', verbose_name='文件地址')
+    file = models.FileField(upload_to='static/data/pdf_summarym/', verbose_name='文件地址')
     add_time = models.DateField(default=timezone.now, verbose_name='文件添加时间')
 
 
