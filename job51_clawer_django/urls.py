@@ -47,7 +47,7 @@ urlpatterns = [
     # 51JOB
     path('job51/index/', v2.job51_index),
     path('job51/data_show/', v2.job51_data_show),
-    path('job51/search/', v2.job51_search),
+    path('job51/search/', v2.job51_search, name='job51_search'),
     path('job51/visualization/', v2.job51_visualization),
     path('job51/visual_screen/', v2.job51_visual_screen),
     path('job51/screen/', v2.job51_screen),
@@ -58,9 +58,10 @@ urlpatterns = [
     path('aitools/pdf_gpt/', v2.aitools_pdf_gpt),
 
     # 404页面
-    path('404/', TemplateView.as_view(template_name='404.html'), name='404'),
+    path('404/', TemplateView.as_view(template_name='index/404.html'), name='404'),
 
-    # 贪吃蛇
+    # 休闲游戏
+    path('others/games_index/', v2.games_index, name='games_index'),
     path('others/snake/', v2.snake, name='snake'),
     path('others/els/', v2.els, name='els'),
 

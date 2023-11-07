@@ -1,4 +1,8 @@
-{% extends 'tem.html' %}
+{% extends 'test/tem.html' %}
+
+{% block app-head %}
+
+{% endblock %}
 
 
 {% block app-content %}
@@ -12,9 +16,9 @@
                         <div class="card bg-analytics text-white">
                             <div class="card-content">
                                 <div class="card-body text-center">
-                                    <img src="{% static 'theme/cool/assets/images/elements/decore-left.png' %}"/> class="img-left"
+                                    <img src="../../static/theme/cool/assets/images/elements/decore-left.png" class="img-left"
                                          alt="card-img-left">
-                                    <img src="{% static 'theme/cool/assets/images/elements/decore-right.png' %}"/> class="img-right"
+                                    <img src="../../static/theme/cool/assets/images/elements/decore-right.png" class="img-right"
                                          alt="card-img-right">
                                     <div class="avatar avatar-xl bg-primary shadow mt-0">
                                         <div class="avatar-content">
@@ -23,7 +27,7 @@
                                     </div>
                                     <div class="text-center">
                                         <h1 class="mb-2 text-white">Hi, 彭松焕</h1>
-                                        <p class="m-auto w-75">欢迎使用 <strong>SudaCloud</strong>，期待给您带来优秀的网络加速服务
+                                        <p class="m-auto w-75">欢迎使用 <strong>AITOOLS</strong>，期待给您带来优秀的体验
                                         </p>
                                     </div>
                                 </div>
@@ -36,9 +40,9 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <span class="h3 font-weight-bold mb-0">按量付费</span>
+                                        <span class="h3 font-weight-bold mb-0">{{ city.ip }}</span>
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="font-size: 14px;">
-                                            按量付费启用中</h5>
+                                            IP</h5>
                                     </div>
                                     <div class="avatar bg-rgba-primary p-50 m-0">
                                         <div class="avatar-content">
@@ -72,9 +76,9 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <span class="h3 font-weight-bold mb-0">¥ 12.80</span>
+                                        <span class="h3 font-weight-bold mb-0">{{ city.ip_addr }}</span>
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="font-size: 14px;">
-                                            账户余额 </h5>
+                                            地区 </h5>
                                     </div>
                                     <div class="avatar bg-rgba-success p-50 m-0">
                                         <div class="avatar-content">
@@ -155,4 +159,8 @@
             </section>
         </div>
     </div>
+{% endblock %}
+
+{% block app-foot %}
+
 {% endblock %}

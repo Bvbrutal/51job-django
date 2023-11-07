@@ -1,4 +1,4 @@
-{% extends 'tem.html' %}
+{% extends 'test/tem.html' %}
 {% load static %}
 {% block app-head %}
 
@@ -12,7 +12,7 @@
             <div class="content-header-right col-md-12 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-6">
-                        <h2 class="content-header-title float-left mb-0">大屏展示</h2>
+                        <h2 class="content-header-title float-left mb-0">展示&搜索</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/index">Home</a>
@@ -30,7 +30,7 @@
                             <input type="text" id="searchInput" class="form-control"
                                    placeholder="输入关键字">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="searchBooks()">搜索
+                                <button class="btn btn-primary" type="button" onclick="searchJobs()">搜索
                                 </button>
                             </div>
                         </div>
@@ -45,7 +45,8 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-                                    <ul id="searchResults" class="list-group mt-3"></ul>
+                                    <ul id="searchkeys" class="list-group mt-3">搜索热门关键字 待开发...
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -91,48 +92,66 @@
 {% endblock %}
 
 {% block app-foot %}
-
-    <script>// search.js
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const searchResults = document.getElementById('searchResults');
-
-        function searchBooks() {
-            const query = searchInput.value.toLowerCase();
-            searchResults.innerHTML = ''; // 清空之前的搜索结果
-
-            if (query.trim() === '') {
-                return; // 如果查询为空，不执行搜索
-            }
-
-            // 模拟一些书籍数据（您可以替换为实际数据）
-            const books = [
-                {title: 'Book 1', author: 'Author 1'},
-                {title: 'Book 2', author: 'Author 2'},
-                {title: 'Book 3', author: 'Author 3'},
-            ];
-
-            const matchingBooks = books.filter(book => {
-                return book.title.toLowerCase().includes(query);
+    <script>
+        function searchJobs() {
+            var keyword = $('#searchInput').val();
+            $.ajax({
+                type: 'GET',
+                url: '/job51/search/', // 替换为您的搜索URL
+                data: {
+                    'keyword': keyword
+                },
+                success: function (response) {
+                    // 在成功回调函数中，将页面重定向到另一个页面
+                    window.location.href = '/search_results/?keyword=' + keyword;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
             });
-
-            if (matchingBooks.length === 0) {
-                searchResults.innerHTML = '<p>没有找到匹配的结果。</p>';
-            } else {
-                matchingBooks.forEach(book => {
-                    const li = document.createElement('li');
-                    li.textContent = `${book.title} by ${book.author}`;
-                    searchResults.appendChild(li);
-                });
-            }
         }
-
-        // 当用户按下回车键时执行搜索
-        searchInput.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter') {
-                searchBooks();
-            }
-        });
-    });
     </script>
+    {#    <script>// search.js#}
+    {#    document.addEventListener('DOMContentLoaded', function () {#}
+    {#        const searchInput = document.getElementById('searchInput');#}
+    {#        const searchResults = document.getElementById('searchResults');#}
+    {##}
+    {#        function searchBooks() {#}
+    {#            const query = searchInput.value.toLowerCase();#}
+    {#            searchResults.innerHTML = ''; // 清空之前的搜索结果#}
+    {##}
+    {#            if (query.trim() === '') {#}
+    {#                return; // 如果查询为空，不执行搜索#}
+    {#            }#}
+    {##}
+    {#            // 模拟一些书籍数据（您可以替换为实际数据）#}
+    {#            const books = [#}
+    {#                {title: 'Book 1', author: 'Author 1'},#}
+    {#                {title: 'Book 2', author: 'Author 2'},#}
+    {#                {title: 'Book 3', author: 'Author 3'},#}
+    {#            ];#}
+    {##}
+    {#            const matchingBooks = books.filter(book => {#}
+    {#                return book.title.toLowerCase().includes(query);#}
+    {#            });#}
+    {##}
+    {#            if (matchingBooks.length === 0) {#}
+    {#                searchResults.innerHTML = '<p>没有找到匹配的结果。</p>';#}
+    {#            } else {#}
+    {#                matchingBooks.forEach(book => {#}
+    {#                    const li = document.createElement('li');#}
+    {#                    li.textContent = `${book.title} by ${book.author}`;#}
+    {#                    searchResults.appendChild(li);#}
+    {#                });#}
+    {#            }#}
+    {#        }#}
+    {##}
+    {#        // 当用户按下回车键时执行搜索#}
+    {#        searchInput.addEventListener('keydown', function (event) {#}
+    {#            if (event.key === 'Enter') {#}
+    {#                searchJobs();#}
+    {#            }#}
+    {#        });#}
+    {#    });#}
+    {#    </script>#}
 {% endblock %}

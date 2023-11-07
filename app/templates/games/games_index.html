@@ -1,0 +1,95 @@
+{% extends 'test/tem.html' %}
+{% load static %}
+{% block app-head %}
+
+{% endblock %}
+
+
+{% block app-content %}
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-left mb-0">休闲游戏</h2>
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/index">Home</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="/others/games_index">Games</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <section id="dashboard-analytics">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="card bg-analytics text-white">
+                            <div class="card-content">
+                                <div class="card-body text-center" style="height: 320px;display:inline-block">
+                                    <a href="/others/els/">
+                                        <img src="{% static "games_static/img/els.webp" %}"
+                                             width="100%"
+                                             height="100%"
+                                             alt="">
+                                        <span class="h3 font-weight-bold mb-0 text-white">俄罗斯方块</span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="card bg-analytics text-white">
+                            <div class="card-content">
+                                <div class="card-body text-center" style="height: 320px;display:inline-block">
+                                    <a href="/others/snake/">
+                                        <img
+                                                src="{% static "games_static/img/snake.webp" %}" width="100%"
+                                                height="100%"
+                                                alt="">
+                                        <span class="h3 font-weight-bold mb-0 text-white">贪吃蛇</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="card bg-analytics text-white">
+                            <div class="card-content">
+                                <div class="card-body text-center">
+                                    <div class="text-center">
+                                        <h1 class="mb-2 text-white">尽请期待...</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="card bg-analytics text-white">
+                            <div class="card-content">
+                                <div class="card-body text-center">
+                                    <div class="text-center">
+                                        <h1 class="mb-2 text-white">尽请期待...</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block app-foot %}
+
+{% endblock %}

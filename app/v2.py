@@ -9,7 +9,7 @@ from app.script.visit_info import change_info
 
 # 404页面
 def custom_404_view(request, exception=None):
-    return render(request, '404.html', status=404)
+    return render(request, 'index/404.html', status=404)
 
 
 def index(request):
@@ -18,7 +18,7 @@ def index(request):
     context = {'city': city}
     print(context['city'].ip, context['city'].ip_addr)
 
-    return render(request, 'index.html', context)
+    return render(request, 'index/index.html', context)
 
 
 # 51JOB
@@ -40,11 +40,11 @@ def job51_data_show(request):
 
 
 def job51_search(request):
-    query = request.GET.get('q')
+    query = request.GET.get('keyword')
+    print(query)
     results = []
-    if query:
-        results = Joblists.objects.filter(title__icontains=query)
-
+    # if query:
+    #     results = Joblists.objects.filter(title__icontains=query)
     context = {'results': results, 'query': query}
     return render(request, 'job51/job51_search.html', context)
 
@@ -160,7 +160,7 @@ def job51_screen(request):
 
     context = {'data': data, 'job_conut': job_conut, 'ec1': ec1, 'ec2': ec2, 'ec5': ec5, 'ec6': ec6, 'ec31': ec31,
                'ec32': ec32, 'ec33': ec33, 'ec4': ec4, 'first_job': first_job}
-    return render(request, 'screen.html', context)
+    return render(request, 'job51/screen.html', context)
 
 
 def job51_visualization(request):
@@ -238,6 +238,11 @@ def upload_file(request):
 
 from .models import Snake,Els
 
+
+
+
+def games_index(request):
+    return render(request, "games/games_index.html")
 def snake(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -254,3 +259,4 @@ def els(request):
         return HttpResponse()
 
     return render(request, "games/els.html")
+

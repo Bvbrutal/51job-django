@@ -1,8 +1,4 @@
-{% extends 'tem.html' %}
-
-{% block app-head %}
-
-{% endblock %}
+{% extends 'test/tem.html' %}
 
 
 {% block app-content %}
@@ -16,9 +12,9 @@
                         <div class="card bg-analytics text-white">
                             <div class="card-content">
                                 <div class="card-body text-center">
-                                    <img src="../static/theme/cool/assets/images/elements/decore-left.png" class="img-left"
+                                    <img src="{% static 'theme/cool/assets/images/elements/decore-left.png' %}"/> class="img-left"
                                          alt="card-img-left">
-                                    <img src="../static/theme/cool/assets/images/elements/decore-right.png" class="img-right"
+                                    <img src="{% static 'theme/cool/assets/images/elements/decore-right.png' %}"/> class="img-right"
                                          alt="card-img-right">
                                     <div class="avatar avatar-xl bg-primary shadow mt-0">
                                         <div class="avatar-content">
@@ -27,7 +23,7 @@
                                     </div>
                                     <div class="text-center">
                                         <h1 class="mb-2 text-white">Hi, 彭松焕</h1>
-                                        <p class="m-auto w-75">欢迎使用 <strong>AITOOLS</strong>，期待给您带来优秀的体验
+                                        <p class="m-auto w-75">欢迎使用 <strong>SudaCloud</strong>，期待给您带来优秀的网络加速服务
                                         </p>
                                     </div>
                                 </div>
@@ -159,8 +155,4 @@
             </section>
         </div>
     </div>
-{% endblock %}
-
-{% block app-foot %}
-
 {% endblock %}
