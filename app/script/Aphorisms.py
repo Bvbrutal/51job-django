@@ -76,7 +76,8 @@ def verse():
     }
 
     re = requests.get(url, headers=header)
-    return json.loads(re.text.encode().decode('unicode_escape'))['data']
+    data=json.loads(re.text.encode().decode('unicode_escape'))['data']
+    return [data['content'],data['title'],data['author']]
 
 if __name__ == '__main__':
     print(verse())

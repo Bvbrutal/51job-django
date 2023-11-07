@@ -134,5 +134,13 @@
 
 {% block app-foot %}
 
-
+    <script>
+        var links = document.querySelectorAll('li.nav-item a');
+        links.forEach(function (link) {
+            if (link.getAttribute('href') === '/job51/search') {
+                link.classList.add('active');
+                link.parentElement.classList.add('active');
+            }
+        });
+    </script>
 {% endblock %}

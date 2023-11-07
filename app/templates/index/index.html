@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-md-6">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="card card-stats">
                             <div class="card-body">
                                 <div class="row">
@@ -81,7 +81,7 @@
                         <h2 class="content-header-title float-left mb-0">优质文章</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                 <li class="breadcrumb-item"><a href="https://pshxx.cc">PSH</a>
+                                <li class="breadcrumb-item"><a href="https://pshxx.cc">PSH</a>
                                 </li>
                             </ol>
                         </div>
@@ -217,24 +217,35 @@
             </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-end">
-                        {{ sentences }}
+                    <div class="card-header d-flex justify-content-between align-items-end" style="color: #ed8283;">
+                        励志句子
                     </div>
                     <hr/>
                     <div class="card-content">
-                        <div class="card-body pt-0">
-                            第四右身体
+                        <div class="card-body pt-0 text-italic blockquote">
+                            {{ sentences.0 }}
                         </div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-end">
-                        第五右头
+                    <div class="card-header d-flex justify-content-between align-items-end" style="color: #ed8283;">
+                        毒鸡汤
                     </div>
                     <hr/>
                     <div class="card-content">
-                        <div class="card-body pt-0">
-                            第五身体
+                        <div class="card-body pt-0 text-italic blockquote">
+                            {{ sentences.1 }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-end" style="color: #ed8283;">
+                        一句诗词
+                    </div>
+                    <hr/>
+                    <div class="card-content">
+                        <div class="card-body pt-0 text-italic blockquote">
+                            {{ sentences.2.0 }}   {{ sentences.2.1 }}---{{ sentences.2.2 }}
                         </div>
                     </div>
                 </div>

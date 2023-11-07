@@ -3,10 +3,11 @@ from django.core.files.storage import FileSystemStorage
 from django.db.models import Sum, Count
 from django.shortcuts import render,redirect
 
+from .script.Aphorisms import sentence,verse,dujitang
 
 pdf_summary_storage = FileSystemStorage(location='/your/custom/path/')
 # 使用Django ORM查询
-from app.models import Joblists, UserIP, User
+from app.models import Joblists, UserIP, User, Job_search
 from app.script.visit_info import change_info
 
 
@@ -20,7 +21,11 @@ def index(request):
     city = UserIP.objects.all().last()
     email=request.session['info']['email']
     name=User.objects.filter(email=email).first().name
-    context = {'city': city,'name':name}
+    sentence1 = sentence()
+    sentence2 = dujitang
+    sentence3 = verse
+    sentences=[sentence1,sentence2,sentence3]
+    context = {'city': city, 'name': name, 'sentences': sentences}
     print(context['city'].ip, context['city'].ip_addr)
 
     return render(request, 'index/index.html', context)
@@ -47,10 +52,20 @@ def job51_data_show(request):
 def job51_search(request):
     query = request.GET.get('keyword')
     results = []
+    keywords = Job_search.objects.all().order_by('-keyword_count')[:20]
+    re=Job_search.objects.filter(keyword_job=query).first()
     if query:
+        if re:
+            count=re.keyword_count
+            re.keyword_count+=1
+            re.save()
+        else:
+            job_search_obj = Job_search(keyword_job=query, keyword_count=0)
+            job_search_obj.save()
         results = Joblists.objects.filter(JobTitle__icontains=query)[:20]
-    context = {'results': results, 'query': query}
-    print(context)
+    for i in keywords:
+        print(i.keyword_job)
+    context = {'results': results, 'query': query,'keywords':keywords}
     return render(request, 'job51/job51_search.html', context)
 
 
@@ -235,7 +250,6 @@ def pdf_upload_file(request):
         if form.is_valid():
             form.save()
             return redirect('success')  # 重定向到上传成功的页面
-    if
     return render(request, 'upload.html', {'form': form})
 
 

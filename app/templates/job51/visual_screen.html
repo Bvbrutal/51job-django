@@ -78,4 +78,13 @@
             });
         }
     </script>
+        <script>
+        var links = document.querySelectorAll('li.nav-item a');
+        links.forEach(function(link) {
+            if (link.getAttribute('href') === '/job51/visual_screen') {
+                link.classList.add('active');
+                link.parentElement.classList.add('active');
+            }
+        });
+    </script>
 {% endblock %}

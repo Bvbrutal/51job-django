@@ -43,14 +43,6 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <ul id="searchkeys" class="list-group mt-3">搜索热门关键字 待开发...
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
                             <div class="card-content" style="overflow: hidden;padding: 10px">
                                 <table border="1px" class="table-striped">
                                     <tr>
@@ -110,6 +102,15 @@
                 }
             });
         }
+    </script>
+    <script>
+        var links = document.querySelectorAll('li.nav-item a');
+        links.forEach(function(link) {
+            if (link.getAttribute('href') === '/job51/data_show') {
+                link.classList.add('active');
+                link.parentElement.classList.add('active');
+            }
+        });
     </script>
     {#    <script>// search.js#}
     {#    document.addEventListener('DOMContentLoaded', function () {#}

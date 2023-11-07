@@ -102,3 +102,8 @@ class Els(models.Model):
     name = models.CharField(max_length=32, verbose_name='姓名')
     els_score = models.IntegerField(default=0, verbose_name='俄罗斯方块分数')
     els_date = models.DateField(default=timezone.now, verbose_name='俄罗斯方块日期')
+
+
+class Job_search(models.Model):
+    keyword_job= models.CharField(max_length=32, verbose_name='关键字')
+    keyword_count = models.IntegerField(verbose_name='次数')

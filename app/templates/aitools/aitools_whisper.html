@@ -57,6 +57,7 @@
 {% block app-foot %}
     <script>
         let show_result = document.getElementById("show_result")
+
         function get_result(file_name) {
             console.log(file_name)
             $.ajax({
@@ -76,6 +77,15 @@
                 }
             })
         }
+    </script>
+    <script>
+        var links = document.querySelectorAll('li.nav-item a');
+        links.forEach(function (link) {
+            if (link.getAttribute('href') === '/aitools/whisper') {
+                link.classList.add('active');
+                link.parentElement.classList.add('active');
+            }
+        });
     </script>
 
 {% endblock %}
