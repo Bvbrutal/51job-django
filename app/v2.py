@@ -1,10 +1,10 @@
 import pandas as pd
+from django.core.files.storage import FileSystemStorage
 from django.db.models import Sum, Count
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
-#名言警句爬虫函数引用
-from app.script.Aphorisms import sentence
 
+pdf_summary_storage = FileSystemStorage(location='/your/custom/path/')
 # 使用Django ORM查询
 from app.models import Joblists, UserIP, User
 from app.script.visit_info import change_info
@@ -20,9 +20,9 @@ def index(request):
     city = UserIP.objects.all().last()
     email=request.session['info']['email']
     name=User.objects.filter(email=email).first().name
-    sentences=sentence()
-    context = {'city': city,'name':name,'sentences':sentences}
+    context = {'city': city,'name':name}
     print(context['city'].ip, context['city'].ip_addr)
+
     return render(request, 'index/index.html', context)
 
 
@@ -228,16 +228,14 @@ def aitools_pdf_gpt(request):
 
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 
-
-def upload_file(request):
+from app.forms import Aitools_FilesForms
+def pdf_upload_file(request):
     if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)
+        form = Aitools_FilesForms(request.POST, request.FILES)
         if form.is_valid():
-            uploaded_file = form.save()
-            # 处理上传后的文件，例如文件名、路径等
-            return HttpResponseRedirect('/success/')  # 可以重定向到成功页面
-    else:
-        form = UploadFileForm()
+            form.save()
+            return redirect('success')  # 重定向到上传成功的页面
+    if
     return render(request, 'upload.html', {'form': form})
 
 
