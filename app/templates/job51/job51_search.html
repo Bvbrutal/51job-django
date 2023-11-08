@@ -48,7 +48,7 @@
                             <div class="card-content">
                                 <div class="card-body black">
                                     {% for keyword in keywords %}
-                                        <h3 style="display: inline-block;margin: 10px;color: #ed8283;">{{ keyword.keyword_job }}</h3>
+                                        <h3 style="display: inline-block;margin: 10px;color: #ed8283;"><a href='/job51/search/?keyword={{ keyword.keyword_job }}'>{{ keyword.keyword_job }}</a></h3>
                                     {% endfor %}
                                 </div>
                             </div>

@@ -6,3 +6,6 @@ selenium
 configparser
 pillow
 lxml
+django
+mysqlclient
+geoip2

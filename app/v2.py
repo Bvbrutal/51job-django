@@ -26,7 +26,6 @@ def index(request):
     sentence3 = verse
     sentences=[sentence1,sentence2,sentence3]
     context = {'city': city, 'name': name, 'sentences': sentences}
-    print(context['city'].ip, context['city'].ip_addr)
 
     return render(request, 'index/index.html', context)
 
@@ -39,7 +38,6 @@ def job51_index(request):
         'job_top': job_top,
         'Occupation_top': Occupation_top
     }
-    print(Occupation_top)
     return render(request, 'job51/job51_index.html', context)
 
 
@@ -62,8 +60,6 @@ def job51_search(request):
             job_search_obj = Job_search_key(keyword_job=query, keyword_count=0)
             job_search_obj.save()
         results = Joblists.objects.filter(JobTitle__icontains=query)[:20]
-    for i in keywords:
-        print(i.keyword_job)
     context = {'results': results, 'query': query,'keywords':keywords}
     return render(request, 'job51/job51_search.html', context)
 
@@ -277,7 +273,6 @@ def els(request):
         email = request.session['info']['email']
         name = User.objects.filter(email=email).first().name
         score = request.POST.get('score')
-        print(name,score)
         els_instance = Els(name=name, els_score=score)
         els_instance.save()
         return HttpResponse(200)

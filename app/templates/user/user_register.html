@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/plugins/sweetalert2.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/theme/style-red.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/all.min.css' %}">
-     <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/js/bootstrap.min.js.map' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/js/bootstrap.min.js.map' %}">
     <script charset="UTF-8" async="" crossorigin="anonymous"
             src="https://static.geetest.com/static/js/geetest.0.0.0.js"></script>
     <script charset="UTF-8" src="https://static.geetest.com/static/js/offline.6.0.0.js"></script>
@@ -112,7 +112,6 @@
 </div>
 
 
-
 <script src="{% static '/theme/cool/assets/js/jquery.min.js' %}"></script>
 <script src="{% static '/theme/cool/assets/js/fuck.js' %}"></script>
 <script src="{% static '/theme/cool/assets/js/notify.js' %}"></script>
@@ -127,19 +126,22 @@
     function login(email, passwd) {
         $.ajax({
             type: "POST",
-            url: "/user/login",
+            url: "/user/login/",
             dataType: "json",
             data: {
-                email: email,
-                passwd: passwd,
-                code: '',
-                remember_me: 1
+                'email': email,
+                'passwd': passwd,
+                'code': '',
+                'remember_me': 1,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+
             },
             success: function (data) {
                 window.location.assign('/')
             }
         });
     }
+
     "use strict";
     var KTLoginGeneral = function () {
         var handleSignInFormSubmit = function () {
@@ -212,17 +214,14 @@
                     url: "/user/register/",
                     dataType: "json",
                     data: {
-                        email: email,
-                        name: $("#name").val(),
-                        passwd: $("#passwd").val(),
-                        repasswd: $("#repasswd").val(),
-                        geetest_challenge: validate.geetest_challenge,
-                        geetest_validate: validate.geetest_validate,
-                        geetest_seccode: validate.geetest_seccode
-
+                        'email': email,
+                        'name': $("#name").val(),
+                        'passwd': $("#passwd").val(),
+                        'repasswd': $("#repasswd").val(),
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
                     },
                     success: function (data) {
-                        if (data.ret == 1) {
+                        if (data.ret === 1) {
                             swal.fire({
                                 type: 'success',
                                 title: '注册成功',
@@ -235,8 +234,6 @@
                         } else {
                             $("#register-button").text('注册');
                             $('#register-button').removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
-                            captcha.reset();
-                            $("#code").val(code);
                             $.notify({
                                 message: '<strong>' + data.msg + '</strong>'
                             }, {
@@ -267,7 +264,6 @@
         KTLoginGeneral.init();
     });
 </script>
-
 
 
 <div style="position: absolute; top: -5px; left: -5px; z-index: 10000; pointer-events: none; width: 1px; height: 1px; display: block; transform: translate3d(0px, 0px, 0px);">

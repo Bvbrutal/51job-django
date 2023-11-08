@@ -22,6 +22,7 @@ from django.views.generic import TemplateView
 from app import v2, account
 from app import views
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
 
