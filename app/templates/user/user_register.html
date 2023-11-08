@@ -1,10 +1,284 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <title>注册 — 云视化</title>
 
+    <script src="{% static 'theme/cool/assets/js/663oAX_et55Nw-9sjwwB5L3PB9U.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.ico' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/cool.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/vendors/css/vendors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/bootstrap-extended.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/plugins/sweetalert2.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/theme/style-red.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/css/all.min.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static '/theme/cool/assets/js/bootstrap.min.js.map' %}">
+    <script charset="UTF-8" async="" crossorigin="anonymous"
+            src="https://static.geetest.com/static/js/geetest.0.0.0.js"></script>
+    <script charset="UTF-8" src="https://static.geetest.com/static/js/offline.6.0.0.js"></script>
+    <link rel="stylesheet" href="https://static.geetest.com/static/golden/style_https.3.2.0.css">
+</head>
+
+<body class="vertical-layout vertical-menu-modern 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page"
+      data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <section class="row flexbox-container">
+                <div class="col-xl-8 col-11 d-flex justify-content-center">
+                    <div class="card bg-authentication rounded-0 mb-0">
+                        <div class="row m-0">
+                            <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
+                                <img src="https://v2.suda.moe/theme/cool/assets/images/logo.gif" alt="branding logo">
+                            </div>
+                            <div class="col-lg-6 col-12 p-0">
+                                <div class="card rounded-0 mb-0 px-2" id="pjax-auth">
+                                    <div class="card-header pb-1">
+                                        <div class="card-title">
+                                            <h4 class="mb-0">注册</h4>
+                                        </div>
+                                    </div>
+                                    <p class="px-2">Fill the below form to create a new account.</p>
+                                    <div class="card-content">
+                                        <div class="card-body pt-1">
+                                            <form class="form-group" action="javascript:void(0);" method="POST"
+                                                  novalidate="" id="login-form">
+                                                <fieldset class="form-label-group position-relative has-icon-left">
+                                                    <div class="input-group login-form">
+                                                        <input id="name" class="form-control" type="text"
+                                                               placeholder="昵称" name="name" required="">
+                                                    </div>
+                                                    <div class="form-control-position">
+                                                        <i class="feather icon-user"></i>
+                                                    </div>
+                                                    <label for="name">昵称</label>
+                                                </fieldset>
+                                                <fieldset class="form-label-group position-relative has-icon-left">
+                                                    <div class="input-group login-form">
+                                                        <input id="email" class="form-control" type="text"
+                                                               placeholder="邮箱(仅常见邮箱)" name="email" required="">
+                                                    </div>
+                                                    <div class="form-control-position">
+                                                        <i class="feather icon-mail"></i>
+                                                    </div>
+                                                    <label for="email">邮箱</label>
+                                                </fieldset>
+                                                <fieldset class="form-label-group position-relative has-icon-left">
+                                                    <div class="input-group login-form">
+                                                        <input id="passwd" class="form-control" type="password"
+                                                               placeholder="密码" name="passwd" required="">
+                                                    </div>
+                                                    <div class="form-control-position">
+                                                        <i class="feather icon-lock"></i>
+                                                    </div>
+                                                    <label for="passwd">密码</label>
+                                                </fieldset>
+                                                <fieldset class="form-label-group position-relative has-icon-left">
+                                                    <div class="input-group login-form">
+                                                        <input id="repasswd" class="form-control" type="password"
+                                                               placeholder="重复密码" name="repasswd" required="">
+                                                    </div>
+                                                    <div class="form-control-position">
+                                                        <i class="feather icon-lock"></i>
+                                                    </div>
+                                                    <label for="repasswd">重复密码</label>
+                                                </fieldset>
+                                                <br>
+                                                <a href="/user/login"
+                                                   class="btn btn-outline-primary float-left btn-inline">登录</a>
+                                                <button type="submit" class="btn btn-primary float-right"
+                                                        id="register-button">注册
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static '/theme/cool/assets/js/jquery.min.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/fuck.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/notify.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/sweetalert2.min.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/theme/cool/assets/js/jquery.validate.min.js' %}"></script>
+<script src="https://static.geetest.com/static/tools/gt.js"></script>
+
+
+<script>
+    // 注册后自动登录
+    function login(email, passwd) {
+        $.ajax({
+            type: "POST",
+            url: "/user/login",
+            dataType: "json",
+            data: {
+                email: email,
+                passwd: passwd,
+                code: '',
+                remember_me: 1
+            },
+            success: function (data) {
+                window.location.assign('/')
+            }
+        });
+    }
+    "use strict";
+    var KTLoginGeneral = function () {
+        var handleSignInFormSubmit = function () {
+            $('#register-button').click(function (e) {
+                e.preventDefault();
+                var btn = $(this);
+                var form = $(this).closest('form');
+                form.validate({
+                    rules: {
+                        name: {
+                            required: true
+                        },
+                        email: {
+                            required: true
+                        },
+
+                        email_code: {
+                            required: true
+                        },
+
+                        passwd: {
+                            required: true,
+                            minlength: 8
+                        },
+                        repasswd: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        name: "请填写昵称",
+                        email: "请填写邮箱",
+                        email_code: "请填写邮箱验证码",
+                        passwd: {
+                            required: "请填写密码",
+                            minlength: "密码至少需要8位以上"
+                        },
+                        repasswd: "请再次填写密码",
+                    },
+                    errorPlacement: function (error, element) {
+                        error.appendTo(element.parent());
+                        element.addClass('is-invalid');
+                        error.addClass('invalid-feedback');
+                    }
+                });
+                if (!form.valid()) {
+                    $.notify({
+                        message: '<strong>请完善注册资料</strong>'
+                    }, {
+                        type: 'danger',
+                        placement: {
+                            from: "top",
+                            align: "center"
+                        },
+                        timer: 1000,
+                        animate: {
+                            enter: 'animated zoomIn',
+                            exit: 'animated zoomOut'
+                        }
+                    });
+                    return;
+                }
+
+                $("#register-button").text('注册中');
+                $('#register-button').addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+
+                var email = $("#email").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/user/register/",
+                    dataType: "json",
+                    data: {
+                        email: email,
+                        name: $("#name").val(),
+                        passwd: $("#passwd").val(),
+                        repasswd: $("#repasswd").val(),
+                        geetest_challenge: validate.geetest_challenge,
+                        geetest_validate: validate.geetest_validate,
+                        geetest_seccode: validate.geetest_seccode
+
+                    },
+                    success: function (data) {
+                        if (data.ret == 1) {
+                            swal.fire({
+                                type: 'success',
+                                title: '注册成功',
+                                confirmButtonText: '转入用户中心',
+                                confirmButtonClass: 'btn btn-info',
+                                onClose: () => {
+                                    login(email, $("#passwd").val());
+                                }
+                            });
+                        } else {
+                            $("#register-button").text('注册');
+                            $('#register-button').removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                            captcha.reset();
+                            $("#code").val(code);
+                            $.notify({
+                                message: '<strong>' + data.msg + '</strong>'
+                            }, {
+                                type: 'danger',
+                                placement: {
+                                    from: "top",
+                                    align: "center"
+                                },
+                                timer: 2000,
+                                animate: {
+                                    enter: 'animated zoomIn',
+                                    exit: 'animated zoomOut'
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+
+        }
+        return {
+            init: function () {
+                handleSignInFormSubmit();
+            }
+        };
+    }();
+    jQuery(document).ready(function () {
+        KTLoginGeneral.init();
+    });
+</script>
+
+
+
+<div style="position: absolute; top: -5px; left: -5px; z-index: 10000; pointer-events: none; width: 1px; height: 1px; display: block; transform: translate3d(0px, 0px, 0px);">
+    <div style="position: absolute; background: pink; width: 5px; height: 5px; border-radius: 5px; transform: translate3d(378.070944px, 360.699617px, 0px); opacity: 0.122807;"></div>
+    <div style="position: absolute; background: yellow; width: 5px; height: 5px; border-radius: 5px; transform: translate3d(397.460986px, 357.847586px, 0px); opacity: 0.23431;"></div>
+    <div style="position: absolute; background: yellow; width: 5px; height: 5px; border-radius: 5px; transform: translate3d(481.752864px, 304.838487px, 0px); opacity: 0.056604;"></div>
+    <div style="position: absolute; background: cyan; width: 1px; height: 1px; border-radius: 1px; transform: translate3d(423.420608px, 360.341705px, 0px); opacity: 0.361538;"></div>
+    <div style="position: absolute; background: pink; width: 3px; height: 3px; border-radius: 3px; transform: translate3d(490.839167px, 453.579381px, 0px); opacity: 0.137931;"></div>
+    <div style="position: absolute; background: cyan; width: 3px; height: 3px; border-radius: 3px; transform: translate3d(446.164383px, 375.003056px, 0px); opacity: 1.144737;"></div>
+    <div style="position: absolute; background: orange; width: 3px; height: 3px; border-radius: 3px; transform: translate3d(470.167066px, 355.118509px, 0px); opacity: 1.807692;"></div>
+    <div style="position: absolute; background: purple; width: 3px; height: 3px; border-radius: 3px; transform: translate3d(0px, 0px, 0px);"></div>
+</div>
 </body>
 </html>
