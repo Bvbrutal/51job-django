@@ -7,7 +7,7 @@ from .script.Aphorisms import sentence,verse,dujitang
 
 pdf_summary_storage = FileSystemStorage(location='/your/custom/path/')
 # 使用Django ORM查询
-from app.models import Joblists, UserIP, User, Job_search
+from app.models import Joblists, UserIP, User, Job_search_key
 from app.script.visit_info import change_info
 
 
@@ -52,15 +52,14 @@ def job51_data_show(request):
 def job51_search(request):
     query = request.GET.get('keyword')
     results = []
-    keywords = Job_search.objects.all().order_by('-keyword_count')[:20]
-    re=Job_search.objects.filter(keyword_job=query).first()
+    keywords = Job_search_key.objects.all().order_by('-keyword_count')[:20]
+    re=Job_search_key.objects.filter(keyword_job=query).first()
     if query:
         if re:
-            count=re.keyword_count
             re.keyword_count+=1
             re.save()
         else:
-            job_search_obj = Job_search(keyword_job=query, keyword_count=0)
+            job_search_obj = Job_search_key(keyword_job=query, keyword_count=0)
             job_search_obj.save()
         results = Joblists.objects.filter(JobTitle__icontains=query)[:20]
     for i in keywords:

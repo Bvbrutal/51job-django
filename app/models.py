@@ -104,6 +104,6 @@ class Els(models.Model):
     els_date = models.DateField(default=timezone.now, verbose_name='俄罗斯方块日期')
 
 
-class Job_search(models.Model):
+class Job_search_key(models.Model):
     keyword_job= models.CharField(max_length=32, verbose_name='关键字')
     keyword_count = models.IntegerField(verbose_name='次数')

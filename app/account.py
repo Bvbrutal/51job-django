@@ -45,4 +45,9 @@ def user_proflie(request):
 
 
 def user_register(request):
+    if request.method == 'POST':
+        email=request.POST.get('email')
+        name=request.POST.get('name')
+        passwd=request.POST.get('passwd')
+        print(email,name,passwd)
     return render(request, 'user/user_register.html')
