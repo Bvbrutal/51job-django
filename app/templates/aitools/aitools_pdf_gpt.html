@@ -63,7 +63,7 @@
         function get_result(name) {
             $.ajax({
                 type: "POST",                //请求方式
-                url: "http://127.0.0.1:8000/show_pdf_summary",                 //路径
+                url: "/aitools/pdf_gpt/",                 //路径
                 async: true,             //是否异步
                 data: {'name': name},
                 dataType: "json",

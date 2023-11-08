@@ -66,9 +66,26 @@
                         <div class="card bg-analytics text-white">
                             <div class="card-content">
                                 <div class="card-body text-center">
-                                    <div class="text-center">
-                                        <h1 class="mb-2 text-white">尽请期待...</h1>
-                                    </div>
+                                    <h1 class="text-center">俄罗斯方块 排行榜</h1>
+                                    <table class="table table-bordered text-dark">
+                                        <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>Player Name</th>
+                                            <th>Score</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for score in Els_score_show %}
+                                        <tr>
+                                            <td>{{ score.name }}</td>
+                                            <td>{{ score.els_score }}</td>
+                                            <td>{{ score.els_date }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        <!-- 在这里添加更多的排行榜记录 -->
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -77,14 +94,30 @@
                         <div class="card bg-analytics text-white">
                             <div class="card-content">
                                 <div class="card-body text-center">
-                                    <div class="text-center">
-                                        <h1 class="mb-2 text-white">尽请期待...</h1>
-                                    </div>
+                                    <h1 class="text-center">贪吃蛇 排行榜</h1>
+                                    <table class="table table-bordered text-dark">
+                                        <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>Player Name</th>
+                                            <th>Score</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for score in Snake_score_show %}
+                                        <tr>
+                                            <td>{{ score.name }}</td>
+                                            <td>{{ score.snake_score }}</td>
+                                            <td>{{ score.snake_date }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        <!-- 在这里添加更多的排行榜记录 -->
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </div>
     </div>

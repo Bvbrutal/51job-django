@@ -238,19 +238,18 @@ def aitools(request):
 
 
 def aitools_pdf_gpt(request):
+    if request.method == 'POST':
+        form = Aitools_FilesForms(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponse(status=200)
     return render(request, 'aitools/aitools_pdf_gpt.html')
 
 
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 
 from app.forms import Aitools_FilesForms
-def pdf_upload_file(request):
-    if request.method == 'POST':
-        form = Aitools_FilesForms(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('success')  # 重定向到上传成功的页面
-    return render(request, 'upload.html', {'form': form})
+
 
 
 from .models import Snake,Els
@@ -259,21 +258,28 @@ from .models import Snake,Els
 
 
 def games_index(request):
-    return render(request, "games/games_index.html")
+    Snake_score_show=Snake.objects.all().order_by("-snake_score")[:10]
+    Els_score_show=Els.objects.all().order_by("-els_score")[:10]
+    context={'Snake_score_show':Snake_score_show,'Els_score_show':Els_score_show}
+    return render(request, "games/games_index.html",context)
 def snake(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
+        email = request.session['info']['email']
+        name = User.objects.filter(email=email).first().name
         score = request.POST.get('score')
-        print(name,score)
-        return HttpResponse()
+        snake_instance=Snake(name=name,snake_score=score)
+        snake_instance.save()
+        return HttpResponse(status=200)
     return render(request, "games/snake.html")
 
 
 def els(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        # Els.objects.
-        return HttpResponse()
-
+        email = request.session['info']['email']
+        name = User.objects.filter(email=email).first().name
+        score = request.POST.get('score')
+        print(name,score)
+        els_instance = Els(name=name, els_score=score)
+        els_instance.save()
+        return HttpResponse(200)
     return render(request, "games/els.html")
-

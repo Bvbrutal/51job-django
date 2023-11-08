@@ -223,8 +223,23 @@
             }
 
             function gameOver() {
+                sendPostRequest(score)
                 alert('游戏结束啦😊！！！');
                 resetGame();
+            }
+
+            function sendPostRequest(score) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/others/els/',
+                    data: {
+                        'score': score,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'  // 使用自定义函数获取CSRF令牌
+                    },
+                    success: function (response) {
+                        console.log(response); // 请求成功时的操作
+                    }
+                });
             }
 
             function resetGame() {
