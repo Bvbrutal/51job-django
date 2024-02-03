@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Large Area Chart</title>
+    <!-- Include ECharts library from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body>
+<!-- Added an ID attribute -->
+<main id="main" style="width: 600px;height:400px;"></main>
+<main id="main1" style="width: 600px;height:400px;"></main>
+<script>
+    // Removed the import statement as we now include ECharts via a script tag from CDN
+    (function () {
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        let date = {{ date|safe }};
+        let data = {{ data|safe }};
+
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                position: function (pt) {
+                    return [pt[0], '10%'];
+                }
+            },
+            title: {
+                left: 'center',
+                text: '车速变化图'
+            },
+            toolbox: {
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                name: '日期',
+                boundaryGap: false,
+                data: date
+            },
+            yAxis: {
+                type: 'value',
+                name: 'km/h',
+                boundaryGap: [0, '100%']
+            },
+            dataZoom: [
+                {
+                    type: 'inside',
+                    start: 0,
+                    end: 10
+                },
+                {
+                    start: 0,
+                    end: 10
+                }
+            ],
+            series: [
+                {
+                    name: '车速',
+                    type: 'line',
+                    symbol: 'none',
+                    sampling: 'lttb',
+                    itemStyle: {
+                        color: 'rgb(255, 70, 131)'
+                    },
+                    areaStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            {
+                                offset: 0,
+                                color: 'rgb(255, 158, 68)'
+                            },
+                            {
+                                offset: 1,
+                                color: 'rgb(255, 70, 131)'
+                            }
+                        ])
+                    },
+                    data: data
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+    })();
+</script>
+
+<script>
+    (function () {
+        var chartDom = document.getElementById('main1');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        // prettier-ignore
+        const dateList = {{ date|safe }};
+        const turnList = {{ turn|safe }};
+        const dataList = {{ data|safe }};
+        option = {
+            // Make gradient line here
+            visualMap: [
+                {
+                    show: false,
+                    type: 'continuous',
+                    seriesIndex: 0,
+                    min: 0,
+                    max: 400
+                },
+                {
+                    show: false,
+                    type: 'continuous',
+                    seriesIndex: 1,
+                    dimension: 0,
+                    min: 0,
+                    max: dateList.length - 1
+                }
+            ],
+            title: [
+                {
+                    left: 'center',
+                    text: '车速'
+                },
+                {
+                    top: '55%',
+                    left: 'center',
+                    text: '转向'
+                }
+            ],
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: [
+                {
+                    data: dateList
+                },
+                {
+                    data: dateList,
+                    gridIndex: 1
+                }
+            ],
+            yAxis: [
+                {},
+                {
+                    gridIndex: 1
+                }
+            ],
+            grid: [
+                {
+                    bottom: '60%'
+                },
+                {
+                    top: '60%'
+                }
+            ],
+            series: [
+                {
+                    type: 'line',
+                    showSymbol: false,
+                    data: dataList
+                },
+                {
+                    type: 'line',
+                    showSymbol: false,
+                    data: turnList,
+                    xAxisIndex: 1,
+                    yAxisIndex: 1
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+    })();
+</script>
+</body>
+</html>
