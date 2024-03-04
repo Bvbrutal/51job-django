@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Evaluation Metrics</title>
+    <!-- 引入 ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 在此处创建图表容器 -->
+    <div id="metrics-chart" style="height: 400px;"></div>
+
+    <script>
+        // 模拟模型评估指标数据
+        var metricsData = {
+            'models': ['Model1', 'Model2', 'Model3'],
+            'accuracy': [0.85, 0.92, 0.78],
+            'precision': [0.78, 0.88, 0.82],
+            'recall': [0.92, 0.94, 0.75],
+        };
+
+        // 使用 ECharts 渲染图表
+        var chart = echarts.init(document.getElementById('metrics-chart'));
+
+        var option = {
+            title: {
+                text: 'Model Evaluation Metrics',
+                x: 'center'
+            },
+            legend: {
+                data: ['Accuracy', 'Precision', 'Recall'],
+                x: 'left'
+            },
+            xAxis: {
+                data: metricsData.models
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: 'Accuracy',
+                    type: 'bar',
+                    data: metricsData.accuracy
+                },
+                {
+                    name: 'Precision',
+                    type: 'bar',
+                    data: metricsData.precision
+                },
+                {
+                    name: 'Recall',
+                    type: 'bar',
+                    data: metricsData.recall
+                }
+            ]
+        };
+
+        chart.setOption(option);
+    </script>
+</body>
+</html>

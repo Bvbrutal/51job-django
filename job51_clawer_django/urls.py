@@ -19,20 +19,18 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
 
-from app import v2, account
-from app import views
-
+from app import v1, v2, v3, account
 
 urlpatterns = [
     path("admin/", admin.site.urls),
 
     # 旧版
-    path('index_old/', views.index),
-    path('show/', views.show),
-    path('wordcloud/', views.wordcloud),
-    path('analysis/', views.analysis),
-    path('pythoninfo/', views.pythoninfo),
-    path('main/', views.main),
+    path('index_old/', v1.index),
+    path('show/', v1.show),
+    path('wordcloud/', v1.wordcloud),
+    path('analysis/', v1.analysis),
+    path('pythoninfo/', v1.pythoninfo),
+    path('main/', v1.main),
 
     # 新版
     # v2主要
@@ -61,10 +59,13 @@ urlpatterns = [
     # 404页面
     path('404/', TemplateView.as_view(template_name='index/404.html'), name='404'),
 
-    # 休闲游戏
-    path('others/games_index/', v2.games_index, name='games_index'),
-    path('others/snake/', v2.snake, name='snake'),
-    path('others/els/', v2.els, name='els'),
+    # # 休闲游戏
+    # path('others/games_index/', v2.games_index, name='games_index'),
+    # path('others/snake/', v2.snake, name='snake'),
+    # path('others/els/', v2.els, name='els'),
+
+    path('IOFV/Visualization/', v3.IOFV_index),
+    path('IOFV/Model_visual/', v3.Model_visual),
 
 ]
 

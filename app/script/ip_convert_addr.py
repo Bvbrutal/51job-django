@@ -8,6 +8,7 @@ def ip_to_addr(ip):
     province = 省
     city = 城市
     """
+    global country
     reader = geoip2.database.Reader('blog/GeoLite2-City.mmdb')
     response = reader.city(ip)
     # print(response)

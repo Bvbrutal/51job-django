@@ -1,5 +1,6 @@
 import pandas as pd
 from django.shortcuts import render
+import numpy as np
 
 def read_csv(path):
     del_cols = ['车辆行驶里程','驾驶员需求扭矩值']
@@ -57,21 +58,24 @@ def read_csv(path):
 
     # 删除时间戳太长的数据
     df = df[df['time_delta_5']<90]
-
     return df
 def get_vehicle_data(num):
     # 替换为你的CSV文件路径
     csv_file_path = './app/static/data/IOFV/test/' + str(num) + '.csv'
     # 读取CSV文件
     df = read_csv(csv_file_path)
+    df['CollectTime']=df['CollectTime'].dt.strftime('%Y-%m-%d %H:%M:%S')
     date = df['CollectTime'].tolist()
     data = df['车速'].tolist()
     turn = df['方向盘转角'].tolist()
-    print(turn[:3])
-
     return {"date": date, "data": data, 'turn': turn}
 
 
 def IOFV_index(request):
     context = get_vehicle_data(121)
     return render(request, "IOFV/Visualization.html", context)
+
+
+def Model_visual(request):
+    context = get_vehicle_data(121)
+    return render(request, "IOFV/Model_visual.html", context)
