@@ -19,14 +19,14 @@ Example address:http://51job.pshxx.cc
 ----
 
 1. Web Display
-![Process Diagram](static/img/img_1.png)
-![img.png](static/img/img_5.png)
-![img_1.png](static/img/img_3.png)
+![Process Diagram](app/static/img/img_1.png)
+![img.png](app/static/img/img_5.png)
+![img_1.png](app/static/img/img_3.png)
 
 
 2. Data Crawling
-![Process Diagram](static/img/img.png)
-![Process Diagram](static/img/img_4.png)
+![Process Diagram](app/static/img/img.png)
+![Process Diagram](app/static/img/img_4.png)
 
 
 # Introduction📝

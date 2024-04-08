@@ -19,14 +19,14 @@
 ----
 
 1. web展示
-![爬取过程图](static/img/img_1.png)
-![img.png](static/img/img_5.png)
-![img_1.png](static/img/img_3.png)
+![爬取过程图](app/static/img/img_1.png)
+![img.png](app/static/img/img_5.png)
+![img_1.png](app/static/img/img_3.png)
 
 
 2. 数据爬取
-![爬取过程图](static/img/img.png)
-![爬取过程图](static/img/img_4.png)
+![爬取过程图](app/static/img/img.png)
+![爬取过程图](app/static/img/img_4.png)
 
 
 # 简介📝
